@@ -1,0 +1,308 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-container">
+    <div class="main wrapper clearfix">
+
+        <section id="banner">
+            <div class="banner">
+                
+				
+				<ul class="galleryH">
+				<li>
+				<img class="banner-img" src="@Url.Content("~/img/background/belgrade-banner-desktop.jpg")" alt="" />
+    <img class="m-banner-img" src="@Url.Content("~/img/background/belgrade-banner-mobile.jpg")" alt="" />
+                <div class="logo">
+                    <a href="@Url.Action("Index","Frontend")">
+                        <img src="@Url.Content("~/img/generic/logo.png")" alt="" />
+                    </a>
+                </div>
+                <aside>
+                    <div class="leftpane">
+                        <h1>
+                            Shaping
+                            <br />
+                            Lives
+                        </h1>
+                        <p>
+                         Bridging the past with the<br /> future                         
+                        </p>
+                        <a href="@Url.Action("belgrade_waterfront", "Frontend")" class="read-more">read more</a>
+                    </div>
+
+                </aside>
+				</li>
+				
+				<li>
+				 <img class="banner-img" src="@Url.Content("~/img/background/marrasi-banner-desktop.jpg")" alt="" />
+     <img class="m-banner-img" src="@Url.Content("~/img/background/marrasi-banner-mobile.jpg")" alt="" />
+				       <div class="logo">
+                    <a href="@Url.Action("Index","Frontend")">
+                        <img src="@Url.Content("~/img/generic/logo.png")" alt="" />
+                    </a>
+                </div>
+                <aside>
+                    <div class="leftpane">
+                        <h1>
+                            Innovative
+                            <br />
+                            Design
+                        </h1>
+                        <p>
+                         An opulent and sustainable<br /> waterside development                         
+                        </p>
+                        <a href="@Url.Action("marassi_al_bahrain", "Frontend")" class="read-more">read more</a>
+                    </div>
+                </aside>
+				</li>
+				
+				<li>
+				 <img class="banner-img" src="@Url.Content("~/img/background/la-marina-banner-desktop.jpg")" alt="" />
+     <img class="m-banner-img" src="@Url.Content("~/img/background/la-marina-banner-mobile.jpg")" alt="" />
+				       <div class="logo">
+                    <a href="@Url.Action("Index","Frontend")">
+                        <img src="@Url.Content("~/img/generic/logo.png")" alt="" />
+                    </a>
+                </div>
+                <aside>
+                    <div class="leftpane">
+                        <h1>
+                            Flagship
+                            <br />
+                            Destinations
+                        </h1>
+                        <p>
+                         A centrally located contemporary<br /> community                         
+                        </p>
+                        <a href="@Url.Action("La_Marina_Morocco","Frontend")#eaglehills" class="read-more">read more</a>
+                    </div>
+
+                </aside>
+				</li>
+				
+				<li>
+				 <img class="banner-img" src="@Url.Content("~/img/background/centrary-city-banner-desktop.jpg")" alt="" />
+     <img class="m-banner-img" src="@Url.Content("~/img/background/centrary-city-banner-mobile.jpg")" alt="" />
+				       <div class="logo">
+                    <a href="@Url.Action("Index","Frontend")">
+                        <img src="@Url.Content("~/img/generic/logo.png")" alt="" />
+                    </a>
+                </div>
+                <aside>
+                    <div class="leftpane">
+                        <h1>
+                           Smart cities                             
+                            <br />
+                            of the future 
+                        </h1>
+                        <p>
+                         A new economic and social hub
+                        </p>
+                        <a href="@Url.Action("centenary_city", "Frontend")" class="read-more">read more</a>
+                    </div>
+
+                </aside>
+				</li>
+				<li>
+				 <img class="banner-img" src="@Url.Content("~/img/background/marsa-banner-desktop.jpg")" alt="" />
+     <img class="m-banner-img" src="@Url.Content("~/img/background/marsa-banner-mobile.jpg")" alt="" />
+				       <div class="logo">
+                    <a href="@Url.Action("Index","Frontend")">
+                        <img src="@Url.Content("~/img/generic/logo.png")" alt="" />
+                    </a>
+                </div>
+                <aside>
+                    <div class="leftpane">
+                        <h1>
+                            Dynamic
+                            <br />
+                            lifestyle
+                        </h1>
+                        <p>
+                         An expansive<br />
+                         mixed-use development
+                        </p>
+                        <a href="@Url.Action("marsa_zayed", "Frontend")" class="read-more">read more</a>
+                    </div>
+
+                </aside>
+				</li>
+						<li>
+				 <img class="banner-img" src="@Url.Content("~/img/background/press-release-desktop.jpg")" alt="" />
+     <img class="m-banner-img" src="@Url.Content("~/img/background/press-release-mobile.jpg")" alt="" />
+				 
+				       <div class="logo">
+                    <a href="@Url.Action("Index","Frontend")">
+                        <img src="@Url.Content("~/img/generic/logo.png")" alt="" />
+                    </a>
+                </div>
+                <aside>
+                    <div class="leftpane">
+                        <h1>
+                            Nikola
+                            <br />
+                             Nedeljkovic
+                        </h1>
+                        <p>
+                         Appointed General Manager<br />
+                         of Belgrade Waterfront
+                        </p>
+                        <a href="@Url.Action("news-detail-12","Frontend")" class="read-more">read more</a>
+                    </div>
+
+                </aside>
+				
+				</li>
+				
+				</ul>
+				
+				
+            </div>
+        </section>
+        @*<section id="banner">
+                <div class="banner">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="@Url.Content("~/img/generic/logo.png")" alt="" />
+                        </a>
+                    </div>
+                    <aside>
+                        <div class="leftpane">
+                            <h1>Majestic Luxury Living
+                            </h1>
+                            <p>&mdash;</p>
+                            <p>
+                                We at Eagle Hills develop spectacular new city hubs in high-growth international markets. We are a global developer of iconic real estate assets and a provider of premium lifestyles. Our flagship city destinations invigorate nations and lives.
+
+                            </p>
+                            <input type="button" class="read-more" value="READ MORE" />
+                        </div>
+                    </aside>
+                </div>
+            </section>*@
+        <section class="cities-of-future">
+            <div class="cities">
+                <div class="content">
+                    <div class="left-pane">
+                        <div class="small-logo">
+                            <img src="@Url.Content("~/img/generic/logo-small.png")" alt="" />
+                        </div>
+                        <div class="cities-intro">
+                            <h1>
+                                Cities of the Future
+                            </h1>
+                            <p>
+                                Eagle Hills is a private investment company and developer of new city hubs and mixed-use projects in high-growth international markets.
+                            </p>
+                            <!--
+                            <p>
+                                We create contemporary and exclusive communities where people can live, work and play.
+
+                            </p>
+                            -->
+                        </div>
+                    </div>
+                    <div class="right-pane">
+                        <div class="carousel">
+                         <!---->
+                            <div class="list-5">
+                                <a href="marsa_zayed" target="_blank">
+                                    <img class="citi-img" src="img/cities/citi-5.png" alt="" />
+                                    <span class="title">
+                                        Marsa Zayed
+                                    </span>
+                                    <span class="country">
+                                       Jordan
+                                    </span>
+                                </a>
+                            </div>
+                               <div class="list-6">
+                                <a href="http://www.stregisammanresidences.com/" target="_blank">
+                                    <img class="citi-img" src="img/cities/citi-6.png" alt="" />
+                                    <span class="title">
+                                        The St. Regis Amman
+                                    </span>
+                                    <span class="country">
+                                        Jordan
+                                    </span>
+                                </a>
+                            </div>
+                         <!---->
+                         
+                            <div class="list-1">
+                                <a href="La_Marina_Morocco" target="_blank">
+                                    <img class="citi-img" src="img/cities/citi-1.png" alt="" />
+                                    <span class="title">
+                                        La Marina Morocco
+                                    </span>
+                                    <span class="country">
+                                        Morocco
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="list-2">
+                                <a href="belgrade_waterfront" target="_blank">
+                                    <img class="citi-img" src="img/cities/citi-2.png" alt="" /><span class="title">
+                                        Belgrade Waterfront
+                                    </span>
+                                    <span class="country">
+                                        serbia
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="list-3">
+                                <a href="@Url.Action("marassi_al_bahrain","Frontend")" target="_blank">
+                                    <img class="citi-img" src="img/cities/citi-3.png" alt="" />
+                                    <span class="title">
+                                        Marassi Al Bahrain
+                                    </span>
+                                    <span class="country">
+                                        Bahrain
+                                    </span>
+                                </a>
+                            </div>   
+                            <div class="list-4">
+                                <a href="centenary_city" target="_blank">
+                                    <img class="citi-img" src="img/cities/citi-4.png" alt="" />
+                                    <span class="title">
+                                        Centenary City
+                                    </span>
+                                    <span class="country">
+                                        Nigeria
+                                    </span>
+                                </a>
+                            </div>                           
+                        </div>
+                        <div class="register-callout">
+                            <h3>
+                                <a href="#register">
+                                    register
+                                    <br />
+                                    your interest
+                                </a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        @* @Html.Partial("_Register", new ViewDataDictionary {{"ActionName", "Index"}})*@
+        @* @Html.Partial("_Register")*@
+        @{ViewData["ActionName"] = "Index";}
+        @Html.Partial("_Register")
+        <script src="~/js/jquery.default.js"></script>
+    </div>
+    <!-- #main -->
+</div>
+<!-- #main-container -->
+@section scripts{
+
+    <!-- sidr js -->
+    <script src="@Url.Content("~/js/jquery.bxslider.js")"></script>
+}
+@*@section Stylings
+        {
+        <link rel="stylesheet" href="@Url.Content("~/css/main.css")">
+    }*@

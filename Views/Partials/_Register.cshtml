@@ -1,0 +1,475 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<User>
+@using EmaarEagleHills.Model;
+@using EmaarEagleHills.Shared;
+@using EmaarEagleHills.Providers;
+@using EmaarEagleHills.Web.Controllers;
+@using Newtonsoft.Json;
+
+
+@{
+    System.Data.DataTable table = EmaarEagleHills.Providers.Countries.Get();
+    string formMessage=TempData["formMessage"] as string ;
+    TempData["formMessage"] ="";
+   string currentCulture = Helper.CurrentLanguage;
+
+    var TitleID=currentCulture == "ar"?1250 :1217;
+    var InterestedInID =currentCulture == "ar"?1255 :1222;
+    var UnitTypeID =currentCulture == "ar"?1262 :1229;
+    var PreferredCommChannelID= currentCulture == "ar"?1270 :1237;
+    var InvestmentTypeID=currentCulture == "ar"?1274 :1241;
+    var AgeGroupID=currentCulture == "ar"?1277 :1244;
+
+     
+
+
+
+
+
+
+
+}
+<script src="~/js/vendor/jquery-1.8.2.min.js"></script>
+
+
+
+
+<section id="register">
+    <div class="register">
+        <div class="logo-register">
+            <img src="~/img/generic/logo-register.png" alt="" />
+        </div>
+    
+
+
+@if(IsPost)
+{
+formMessage="";
+}
+else
+{
+formMessage="";
+}
+
+
+  @using (Html.BeginUmbracoForm<EmaarEagleHills.Web.Controllers.FrontEndController>("RegisterUser", FormMethod.Post,new { @autocomplete = "off"} ))
+   {          
+           @Html.AntiForgeryToken()
+            <div class="leftpane">
+                <h1>
+                @Html.Raw(@Helper.GetDictionaryItemByCulture("RegisterYourInterest"))   
+                </h1>
+
+                
+          
+
+                <!--THANK-YOU-->
+                <div class="Thankyou" style="display: @(formMessage== "true" ? "block" : "none")">
+                    
+                    <p>@Html.Raw( @Helper.GetDictionaryItemByCulture("Thankyou"))   </p>
+                </div>
+                <!--THANK-YOU-->
+             
+
+                <!--ERROR-->
+                <div class="ErrorBox" style="display:@(formMessage == "false" ? "" : "none")">
+                    <p>@Html.Raw(@Helper.GetDictionaryItemByCulture("ErrorMessage"))   </p>
+                </div>
+                <!--ERROR-->
+
+                <div class="form" id="status">
+
+                    <fieldset>
+                        <label id="lbltitle" class="">
+                    @Html.Raw( @Helper.GetDictionaryItemByCulture("Title"))      
+                        </label>
+                        <div class="styled-select">
+
+
+
+
+
+
+
+
+                         <select name="Title" id="Title" class="">
+                                <option value="--">
+                            @Helper.GetCultureBasedProperty("default", TitleID)
+                        </option>
+
+  @foreach (var item in Settings.GetCurrentPageChildContentById(TitleID))
+                {
+                               <option value="@(Helper.GetCultureBasedProperty("Name", item.Id))">
+                              @Helper.GetCultureBasedProperty("Name", item.Id)
+                            </option>
+
+}
+
+                            </select>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label id="lblfirstname" class="@ViewBag.FirstNameError">
+                            @Html.Raw( @Helper.GetDictionaryItemByCulture("FirstName"))        
+                        </label>
+                        @Html.TextBoxFor(i => i.FirstName, new {placeholder = "first name", @maxlength = "50", name = "firstname", id = "firstname", @class = ViewBag.FirstNameError , @onkeypress = "return ValidateCharacter(event)"  })
+                    </fieldset>
+                    <fieldset>
+                        <label id="lbllasttname" class="@ViewBag.LastNameError">
+                           @Html.Raw( @Helper.GetDictionaryItemByCulture("LastName"))     
+                        </label>
+                        @Html.TextBoxFor(i => i.LastName, new {  placeholder = "last name", @maxlength = "50", name = "lastname", id = "lastname", @class = ViewBag.LastNameError , @onkeypress = "return ValidateCharacter(event)" })
+                    </fieldset>
+                    <fieldset>
+                        <label id="lblcountry" class="@ViewBag.CountryError">
+                          @Html.Raw( @Helper.GetDictionaryItemByCulture("CountryofResidence"))    
+                        </label>
+                        <div class="styled-select @ViewBag.CountryError">
+                            <select name="country" onchange="countryCode()" id="country" required="required">
+                                <option value="--">@Helper.GetCultureBasedProperty("default", TitleID)</option>
+                              
+                                @if (table != null && table.Rows.Count > 0)
+                                {
+                                    foreach (System.Data.DataRow row in table.Rows)
+                                    {
+                                        <option code="@row["Code"]" value="@row["NameEn"]" @((Model.Country == row["NameEn"].ToString()) ? "selected=\"selected\"" : "")>@(row["NameEN"])</option>
+
+                                    }
+                                }
+                            </select>
+
+                        </div>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label id="lblmobile" style="width: 100%;" class="@ViewBag.MobileError">
+                           @Html.Raw( @Helper.GetDictionaryItemByCulture("MobileNumber"))      
+                        </label>
+                     
+                        @Html.TextBoxFor(i => i.Mobile, new { placeholder = "mobile number", name = "mobile", id = "mobile", @class = ViewBag.MobileError, type = "tel", @onkeypress = "return ValidateNumber(event)"  })
+
+                    </fieldset>
+                    <fieldset>
+                        <label id="lblnationality" class="@ViewBag.NationalityError">
+                            nationality*
+                        </label>
+                        <div class="styled-select @ViewBag.NationalityError">
+                            <select name="nationality" id="nationality" required="required">
+                                <option value="--">@Helper.GetCultureBasedProperty("default", TitleID)</option>
+                              
+
+                                @if (table != null && table.Rows.Count > 0)
+                                {
+                                    foreach (System.Data.DataRow row in table.Rows)
+                                    {
+                                        <option code="@row["Code"]" value="@row["NameEn"]" @((Model.Nationality == row["NameEn"].ToString()) ? "selected=\"selected\"" : "")>@(row["NameEn"])</option>
+                                    }
+                                }
+                            </select>
+
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label id="lblemail" class="@ViewBag.EmailError">
+                           @Html.Raw( @Helper.GetDictionaryItemByCulture("Email"))  
+                        </label>
+                        @Html.TextBoxFor(i => i.Email, new {placeholder = "Email",  name = "email", id = "email", @class = ViewBag.EmailError })
+                    </fieldset>
+                   
+                    <fieldset>
+                        <label id="lblInterestedIn" class="@ViewBag.InterestedInError">
+                          @Html.Raw( @Helper.GetDictionaryItemByCulture("InterestedIn"))     
+                        </label>
+                        <div class="styled-select @ViewBag.InterestedInError">
+
+
+
+                     
+ 
+
+
+
+                            <select id="projects-dd" name="InterestedIn" required="required" class="@ViewBag.InterestedInError">
+                                <option value="--">
+                            @Helper.GetCultureBasedProperty("default", InterestedInID ) </option>
+
+ @foreach (var item in Settings.GetCurrentPageChildContentById(InterestedInID ))
+                {
+                               <option value="@(Helper.GetCultureBasedProperty("Name", item.Id))">
+                              @Helper.GetCultureBasedProperty("Name", item.Id)
+                            </option>
+
+}
+
+</select>
+                       
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label id="lblAgeGroup" class="">
+                          @Html.Raw( @Helper.GetDictionaryItemByCulture("AgeGroup"))   
+                        </label>
+
+
+                        <div class="styled-select">
+                            <select name="AgeGroup" id="AgeGroup" class="">
+                                <option value="--"> @Helper.GetCultureBasedProperty("default", AgeGroupID )</option>
+
+ @foreach (var item in Settings.GetCurrentPageChildContentById(AgeGroupID ))
+                {
+                               <option value="@(Helper.GetCultureBasedProperty("Name", item.Id))">
+                              @Helper.GetCultureBasedProperty("Name", item.Id)
+                            </option>
+
+}                              
+
+                            </select>
+                           
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label id="lblUnitType" class="@ViewBag.UnitTypeError">
+                          @Html.Raw( @Helper.GetDictionaryItemByCulture("UnitType"))   
+                        </label>
+                        <div class="styled-select @ViewBag.UnitTypeError">
+                            <select name="UnitType" id="UnitType" required="required">
+
+                                <option value="--">@Helper.GetCultureBasedProperty("default", UnitTypeID  )</option>
+
+ @foreach (var item in Settings.GetCurrentPageChildContentById(UnitTypeID))
+                {
+                               <option value="@(Helper.GetCultureBasedProperty("Name", item.Id))">
+                              @Helper.GetCultureBasedProperty("Name", item.Id)
+                            </option>
+
+}                              
+                               
+
+                            </select>
+
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label id="lblPreferedCommunicationChannel" class="@ViewBag.PreferedCommunicationChannelError">
+                          @Html.Raw( @Helper.GetDictionaryItemByCulture("PreferredCommunicationChannel"))     
+                        </label>
+                        <div class="styled-select @ViewBag.PreferedCommunicationChannelError">
+                           
+
+                   <select name="PreferedCommunicationChannel" id="PreferedCommunicationChannel" required="required" class="@ViewBag.PreferedCommunicationChannelError">
+
+
+                                <option value="--">@Helper.GetCultureBasedProperty("default", PreferredCommChannelID  )</option>
+ @foreach (var item in Settings.GetCurrentPageChildContentById(PreferredCommChannelID))
+                {
+                               <option value="@(Helper.GetCultureBasedProperty("Name", item.Id))">
+                              @Helper.GetCultureBasedProperty("Name", item.Id)
+                            </option>
+
+}     
+                              
+                            </select>
+
+                        </div>
+                       
+                    </fieldset>
+                    <fieldset>
+                        <label id="lblInvestmentType" class="">
+                           @Html.Raw( @Helper.GetDictionaryItemByCulture("InvestmentType"))     
+                        </label>
+                        <div class="styled-select ">
+                            <select name="InvestmentType" id="InvestmentType">
+                                <option value="--">@Helper.GetCultureBasedProperty("default", InvestmentTypeID)</option>
+ @foreach (var item in Settings.GetCurrentPageChildContentById(InvestmentTypeID))
+                {
+                               <option value="@(Helper.GetCultureBasedProperty("Name", item.Id))">
+                              @Helper.GetCultureBasedProperty("Name", item.Id)
+                            </option>
+
+}    
+                               
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <div class="checkboxes">
+                     
+                        <h6> @Html.Raw( @Helper.GetDictionaryItemByCulture("NoofBedrooms"))   </h6>
+                        <fieldset id="divid">
+                            <div class="offerings @ViewBag.bw_offeringsError">
+                                @Html.CheckBoxFor(i => i.bw_Studio, new { name = "chkbw_Studio", id = "chkbw_Studio", @class = ViewBag.bw_offeringsError })
+
+                                <label id="lblchkbw_Studio" class="@ViewBag.bw_offeringsError" for="chkbw_Studio">
+                                  @Html.Raw( @Helper.GetDictionaryItemByCulture("Studio"))   
+                                </label>
+                            </div>
+                            <div class="offerings @ViewBag.bw_offeringsError">
+                                @Html.CheckBoxFor(i => i.bw_Bedroom_1, new { name = "chkbw_bedroom_1", id = "chkbw_bedroom_1", @class = ViewBag.bw_offeringsError })
+
+                                <label id="lblchkbw_bedroom_1" class="@ViewBag.bw_offeringsError" for="chkbw_bedroom_1">
+                                  @Html.Raw( @Helper.GetDictionaryItemByCulture("1Bedroom"))   
+                                </label>
+                            </div>
+                            <div class="offerings @ViewBag.bw_offeringsError">
+                                @Html.CheckBoxFor(i => i.bw_Bedroom_2, new { name = "chkbw_Bedroom_2", id = "chkbw_Bedroom_2", @class = ViewBag.bw_offeringsError })
+
+                                <label id="lblchkbw_Bedroom_2" class="@ViewBag.bw_offeringsError" for="chkbw_Bedroom_2">
+                                   @Html.Raw( @Helper.GetDictionaryItemByCulture("2Bedrooms"))  
+                                </label>
+                            </div>
+                            <div class="offerings @ViewBag.bw_offeringsError">
+                                @Html.CheckBoxFor(i => i.bw_Bedroom_3, new { name = "chkbw_Bedroom_3", id = "chkbw_Bedroom_3", @class = ViewBag.bw_offeringsError })
+
+                                <label id="lblchkbw_Bedroom_3" class="@ViewBag.bw_offeringsError" for="chkbw_Bedroom_3">
+                                   @Html.Raw( @Helper.GetDictionaryItemByCulture("3Bedrooms"))    
+                                </label>
+                            </div>
+                            <div class="offerings @ViewBag.bw_offeringsError">
+                                @Html.CheckBoxFor(i => i.bw_Bedroom_4Plus, new { name = "chkbw_Bedroom_4Plus", id = "chkbw_Bedroom_4Plus", @class = ViewBag.bw_offeringsError })
+
+                                <label id="lblchkbw_Bedroom_4Plus" class="@ViewBag.bw_offeringsError" for="chkbw_Bedroom_4Plus">
+                                  @Html.Raw( @Helper.GetDictionaryItemByCulture("4Bedrooms"))    
+                                </label>
+                            </div>
+                            <div class="offerings @ViewBag.bw_offeringsError">
+                                @Html.CheckBoxFor(i => i.bw_Bedroom_5Plus, new { name = "chkbw_Bedroom_5Plus", id = "chkbw_Bedroom_5Plus", @class = ViewBag.bw_offeringsError })
+
+                                <label id="lblchkbw_Bedroom_5Plus" class="@ViewBag.bw_offeringsError" for="chkbw_Bedroom_5Plus">
+                                 @Html.Raw(@Helper.GetDictionaryItemByCulture("5+Bedrooms"))  
+                                </label>
+                            </div>
+
+                        </fieldset>
+                      
+                    </div>
+                    <div class="submit">
+                        
+<!--  <input type="submit" value="@Helper.GetDictionaryItemByCulture("Submit")" name="saveinterset" onclick="return ValidateForm()" /> -->
+
+
+                                  <input type="button" value="@Helper.GetDictionaryItemByCulture("Submit")"  name="saveinterset" onclick="return ValidateForm()" />
+
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="rightpane">
+            <div class="contact">
+                <h5>
+                 @Html.Raw(@Helper.GetDictionaryItemByCulture("GetInTouchWithUs"))    
+                </h5>
+                <div class="googlemap">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3632.924244657168!2d54.43494167723186!3d24.418699239135094!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e4275f13979ff%3A0x6c6360b6d7dc1f28!2sCapital+Gate+-+Abu+Dhabi+-+United+Arab+Emirates!5e0!3m2!1sen!2s!4v1410870438490" width="400" height="300" frameborder="0" style="border: 0"></iframe>
+                </div>
+                <div class="contactdetails">
+                    <p>
+                     @Html.Raw(@Helper.GetDictionaryItemByCulture("ContactDetails"))    
+                    </p>
+                    <div class="numbers">
+
+@{
+                     
+
+
+ foreach (IPublishedContent item in Settings.IPublishedDetailsNumber)
+           {  
+
+       int k;
+
+    var contactNoOrHyperLink=Helper.GetCultureBasedProperty("contactNoOrHyperLink", item.Id);
+
+   Dictionary<string, string>[] relatedLinkcontactNo = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(contactNoOrHyperLink);
+   string  links = int.TryParse(relatedLinkcontactNo[0]["link"], out k) ? Umbraco.NiceUrl(Convert.ToInt32(relatedLinkcontactNo[0]["link"])) : relatedLinkcontactNo[0]["link"];
+   var cap = relatedLinkcontactNo[0]["caption"];
+
+
+
+                      <p>
+                            <span>
+                                <img src="@Helper.GetCultureBasedImagePath("image", item.Id)" alt="" />
+                            </span>
+                           
+
+@if (links.Contains("#"))
+            {
+ @cap <a href="javascript:void(0)" class="small-font">@links.Remove(0,1)</a>
+
+}
+
+else if(String.IsNullOrEmpty(links))
+
+{
+
+@cap
+
+}
+
+
+else
+
+
+{
+ <a href="@links">@cap</a>
+
+}
+
+
+                        </p>
+                      
+}
+}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@if (ViewBag.Success == "true")
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            for (var a = 0; a < document.getElementsByTagName("input").length; a++) {
+                if (document.getElementsByTagName("input")[a].type == "checkbox") {
+                    document.getElementsByTagName("input")[a].checked = false;
+                }
+                else if (document.getElementsByTagName("input")[a].type == "text") {
+                    document.getElementsByTagName("input")[a].value = "";
+                }
+            }
+
+            for (var a = 0; a < document.getElementsByTagName("select").length; a++) {
+                //projects-dd
+                if (document.getElementsByTagName("select")[a].id == "projects-dd") {
+                    document.getElementsByTagName("select")[a].value = "BelgradeWaterfront";
+                }
+                else {
+                    document.getElementsByTagName("select")[a].value = "--";
+                }
+            }
+
+
+        });
+       
+    </script>
+}
+<script src="/js/intlTelInput.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $("#mobile").intlTelInput();
+    function countryCode()
+    {
+        if ($('#country').val() != "--") {
+            $("#countrycode").val('+' + $('option:selected', '#country').attr('code'));
+        }
+        else
+        {
+            $("#countrycode").val(null);
+        }
+    }
+
+</script>
+

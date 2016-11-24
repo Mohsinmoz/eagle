@@ -1,0 +1,79 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using EmaarEagleHills.Shared
+@using Newtonsoft.Json;
+@{
+   
+    string cultureParameter = string.Empty;
+
+  string currentCulture = Helper.CurrentLanguage;
+  
+ if (currentCulture == "ar")
+    {
+        cultureParameter = "?lang=ar";
+      
+    }
+
+var lnkId =Helper.GetCultureBasedProperty("isBannerRequired", CurrentPage.Id);  
+
+}
+
+ @if (!String.IsNullOrEmpty(lnkId))
+          {
+
+
+
+   int j;
+   var hyperLink=Helper.GetCultureBasedProperty("logoHyperLink", Convert.ToInt32(lnkId));
+   Dictionary<string, string>[] relatedLink = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(hyperLink);
+   var  link = int.TryParse(relatedLink[0]["link"], out j) ? Umbraco.NiceUrl(Convert.ToInt32(relatedLink[0]["link"])) : relatedLink[0]["link"];
+
+
+
+
+   int k;
+   var hyperLinkProject=Helper.GetCultureBasedProperty("projectLogoHyperLink", Convert.ToInt32(lnkId));
+   var  linkProject ="";
+
+if(!String.IsNullOrEmpty(hyperLinkProject))
+
+{
+
+    Dictionary<string, string>[] relatedLinkProject = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(hyperLinkProject);
+    linkProject = int.TryParse(relatedLinkProject[0]["link"], out k) ? Umbraco.NiceUrl(Convert.ToInt32(relatedLinkProject[0]["link"])) : relatedLinkProject[0]["link"];
+}
+
+ <div class="banner">
+
+            <img src="@Helper.GetCultureBasedImagePath("dekstopBannerImage", Convert.ToInt32(lnkId))" alt="" class="dekstop-banner" />
+            <img src="@Helper.GetCultureBasedImagePath("mobileBannerImage", Convert.ToInt32(lnkId))" alt="" class="mobile-banner" />
+
+         <!--   <div class="logo">
+                 <a href="@link">
+                    <img src="@Helper.GetCultureBasedImagePath("logoImage", Convert.ToInt32(lnkId))" alt="" />
+                </a>
+            </div> -->
+
+
+<div class="logo">
+
+                    <a href="@link">
+                        <img src="@Url.Content("~/img/generic/logo-white.png")" alt="" />
+                    </a>
+ </div>
+
+
+              <div class="project-logo @Helper.GetCultureBasedProperty("cssClass", Convert.ToInt32(lnkId))">
+
+                <a href="@linkProject">
+                    <img src="@Helper.GetCultureBasedImagePath("projectLogoImage", Convert.ToInt32(lnkId))" alt=""  class="desktop-logo"/>
+
+                     <img src="@Helper.GetCultureBasedImagePath("projectLogoMobileLogoImage", Convert.ToInt32(lnkId))" alt="" class="mobile-logo"  />       
+                </a>
+
+
+
+            </div>
+           
+ </div>
+
+}

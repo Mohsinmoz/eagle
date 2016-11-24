@@ -1,0 +1,44 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using EmaarEagleHills.Shared;
+@using EmaarEagleHills.Model;
+@using Umbraco.Core.Models;
+@{
+    Layout = "Master.cshtml";
+
+var linkId = Helper.GetCultureBasedProperty("isRegisterRequired",CurrentPage.Id);  
+}
+
+@if (linkId=="1" && CurrentPage.Name=="Register")
+          
+{
+@Html.Partial("_Register", new User())
+}
+
+ <div class="project-details wrapper clearfix">
+@Html.Partial("_Banner")
+@Html.Partial("_PageNavigationSection")
+@Html.Partial("_Overview")
+@Html.Partial("_ExclusiveFeatures")
+@Html.Partial("_EagleHills")
+@Html.Partial("_TheTeam")
+@Html.Partial("_Vision")
+@Html.Partial("_PressReleases")
+@Html.Partial("_NewsDetail")
+@Html.Partial("_Careers")
+@Html.Partial("_PhotoGallery")
+
+@if (linkId=="1" && CurrentPage.Name!="Register")
+          
+{
+@Html.Partial("_Register", new User())
+}
+
+</div>
+
+
+  <div class="main wrapper clearfix">
+@Html.Partial("_PrivacyPolicyAndTermConditions")
+
+</div>
+
+ <script src="~/js/jquery.default.js"></script>

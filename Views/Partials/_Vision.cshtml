@@ -1,0 +1,61 @@
+﻿
+
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using EmaarEagleHills.Shared
+@using Newtonsoft.Json;
+@{
+   
+    string cultureParameter = string.Empty;
+
+  string currentCulture = Helper.CurrentLanguage;
+  
+ if (currentCulture == "ar")
+    {
+        cultureParameter = "?lang=ar";
+      
+    }
+
+var lnkId =Helper.GetCultureBasedProperty("isVisionAndMissionRequired", CurrentPage.Id);  
+
+int i=1;
+}
+
+ @if (!String.IsNullOrEmpty(lnkId))
+          {
+
+
+
+
+
+
+
+
+<section id="vision">
+            <div class="tab">
+                <h4>
+                  @Html.Raw(@Helper.GetDictionaryItemByCulture("visionmission"))
+                </h4>
+            </div>
+
+            <div class="vision">
+                <div class="singlepane">
+                    <div class="copy">
+
+                        <h3>
+                           @Html.Raw(@Helper.GetCultureBasedProperty("mainHeading", Convert.ToInt32(lnkId)))   
+                        </h3>
+
+                        <h6>  @Html.Raw(@Helper.GetCultureBasedProperty("firstHeading", Convert.ToInt32(lnkId)))    </h6>
+                        <p>
+                              @Html.Raw(@Helper.GetCultureBasedProperty("contentFirstHeading", Convert.ToInt32(lnkId)))   
+                        </p>
+                        <h6>  @Html.Raw(@Helper.GetCultureBasedProperty("secondHeading", Convert.ToInt32(lnkId)))   </h6>
+                        <p>
+                             @Html.Raw(@Helper.GetCultureBasedProperty("secondContentHeading", Convert.ToInt32(lnkId)))   
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+}

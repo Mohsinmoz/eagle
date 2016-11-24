@@ -1,0 +1,437 @@
+﻿@{
+    ViewBag.Title = "Belgrade Waterfront";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="main-container">
+    <div class="project-details wrapper clearfix">
+        <div class="banner">
+            <img src="@Url.Content("/img/background/project-banner-5.jpg")" alt="" class="dekstop-banner" />
+            <img src="@Url.Content("/img/background/project-banner-mobile-5.jpg")" alt="" class="mobile-banner" />
+            <div class="logo">
+                <a href="@Url.Action("Index","Frontend")">
+                    <img src="@Url.Content("/img/generic/logo-white.png")" alt="" />
+                </a>
+            </div>
+            <div class="project-logo maarsa">
+                <a href="http://www.marsazayed.com">
+                    <img src="@Url.Content("/img/generic/marsazayed-logo.png")" alt="" />
+                </a>
+            </div>
+            <!--
+            <div class="main-project-logo">
+                <a href="@Url.Action("Al_Maabar","Frontend")">
+                 <img src="@Url.Content("/img/generic/almaabar-logo.png")" alt="" class="dekstop-banner" />
+                 <img src="@Url.Content("/img/generic/almaabar-logo-mobile.png")" alt="" class="mobile-banner" />
+                </a>
+            </div>
+            -->
+        </div>
+        <div class="page-nav">
+            <ul>
+                <li>
+                    <a href="#overview">
+                        <span>overview
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#features">
+                        <span>features
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#gallery">
+                        <span>gallery
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <section id="overview">
+            <div class="tab">
+                <h4>overview
+                </h4>
+            </div>
+            <div class="overview">
+                <div class="singlepane">
+                 <!--
+                    <h3>Al Maabar, a subsidiary of Eagle Hills, has major projects in progress in Jordan with masterplanned, mixed-use developments that are designed to regenerate communities and act as a powerful catalyst for economic growth.
+                    </h3>
+                    -->
+                    <img src="@Url.Content("/img/inner/overview-5.jpg")" alt="" />
+                    <h3>
+                    Marsa Zayed project, named in memory of the late President of the UAE, His Highness Sheikh Zayed Bin Sultan Al Nahyan, is located in Aqaba, Jordan’s only coastal city.
+                    </h3>
+                    <div class="rightpane-copy">
+                        <p>
+                         As the largest mixed-use development project in Jordan, the 3.2 km site stretches over half the downtown area and includes prime waterfront space that will offer expansive retail, recreational, entertainment, and business districts. Marsa Zayed is set to become one of Jordan's touristic landmarks and a welcoming gateway to Aqaba. 
+                        </p>
+                        <p>
+                         Marsa Zayed is currently in its first phase of development, which includes two major components: the Sheikh Zayed Masjid, a large, ornate mosque on the northern end of the project that was completed in August 2014, and Al Raha Village, a peaceful, residential neighborhood on the southern edge of Marsa Zayed.
+                        </p>
+                        <div class="buttons">
+         <input type="button" value="register your interest" class="register-btn" onClick="location.href = '#register'" />
+         <div class="project-btn">
+          <a href="http://www.marsazayed.com" target="_blank">
+           visit website
+          </a>
+         </div>
+        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="features">
+            <div class="tab">
+                <h4>features
+                </h4>
+            </div>
+            <div class="features">
+                <div class="leftpane">
+                    <h3>Exclusive Features
+                    </h3>
+                    <p>
+                      Poised to transform the coastal city of Aqaba into a premier destination for living, travel and business, Marsa Zayed will offer a modern and progressive way of life.
+                    </p>
+                    <ul>
+                        <li>
+                         Prime waterfront location offering retail, recreational, entertainment and business districts 
+                        </li>
+                        <li>
+                         Residential units comprising luxury villas, townhouses and apartments
+                        </li>
+                        <li>
+                         Eight world class hotels 
+                        </li>
+                        <li>
+                         Jordan's first and only state-of-the-art cruise ship terminal 
+                        </li>
+                        <li>
+                         Marinas with capacity for over 350 boats
+                        </li>
+                    </ul>
+                </div>
+                <div class="rightpane">
+                    <img src="@Url.Content("/img/inner/features-5.jpg")" alt="" />
+                </div>
+            </div>
+        </section>
+        <section id="gallery">
+            <div class="tab">
+                <h4>gallery
+                </h4>
+            </div>
+            <div class="gallery">
+                <div class="leftpane">
+                    <div class="gallery-frame">
+                        <div class="dekstop-slider-view">
+                            <div id="slider-1" class="flexslider">
+                             <ul class="slides">
+                             <li>
+                              <div class="largerImage">
+                                <img src="@Url.Content("/img/gallery/marsa-zayed/01.jpg")" id="addimage" alt="" />
+                              </div>                              
+                             </li>
+                             <li>
+                              <div class="largerImage">
+                                <img src="@Url.Content("/img/gallery/marsa-zayed/02.jpg")" id="addimage" alt="" />
+                              </div>
+                              
+                             </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/03.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/04.jpg")" />
+                                     </div>
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/05.jpg")" />
+                                      </div>  
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/06.jpg")" />
+                                      </div>  
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/07.jpg")" />
+                                      </div>  
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/08.jpg")" />
+                                      </div>  
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/09.jpg")" />
+                                      </div>  
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/10.jpg")" />
+                                      </div>  
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/11.jpg")" />
+                                      </div>  
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/12.jpg")" />
+                                      </div>  
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/13.jpg")" />
+                                      </div>  
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/14.jpg")" />
+                                      </div>  
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/15.jpg")" />
+                                      </div>  
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/16.jpg")" />
+                                      </div>  
+                                    </li>
+                            </ul>                            
+                            </div>
+                            <img src="@Url.Content("/img/generic/gallery-frame.png")" class="frame" alt="" />
+                        </div>
+                        <div class="mobile-slider-view">
+                            <!-- Place somewhere in the <body> of your page -->
+                            <div id="slider" class="flexslider">
+                                <ul class="slides">
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/01.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/02.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/03.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/04.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/05.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/06.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/07.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/08.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/09.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/10.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/11.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/12.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/13.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/14.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/15.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/16.jpg")" />
+                                    </li>
+                                    <!-- items mirrored twice, total of 12 -->
+                                </ul>
+                            </div>
+                            <div id="carousel" class="flexslider">
+                                <ul class="slides">
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/01.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/02.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/marsa-zayed/04.jpg")" />
+                                    </li>                                                
+                                    <li>
+                                     <img src="@Url.Content("/img/gallery/marsa-zayed/05.jpg")" />
+                                    </li>
+                                    <li>
+                                     <img src="@Url.Content("/img/gallery/marsa-zayed/06.jpg")" />
+                                    </li>
+                                    <li>
+                                     <img src="@Url.Content("/img/gallery/marsa-zayed/07.jpg")" />
+                                    </li>
+                                    <li>
+                                     <img src="@Url.Content("/img/gallery/marsa-zayed/08.jpg")" />
+                                    </li>
+                                    <li>
+                                     <img src="@Url.Content("/img/gallery/marsa-zayed/09.jpg")" />
+                                    </li>
+                                    <li>
+                                     <img src="@Url.Content("/img/gallery/marsa-zayed/10.jpg")" />
+                                    </li>
+                                    <li>
+                                     <img src="@Url.Content("/img/gallery/marsa-zayed/11.jpg")" />
+                                    </li>
+                                    <li>
+                                     <img src="@Url.Content("/img/gallery/marsa-zayed/12.jpg")" />
+                                    </li>
+                                    <li>
+                                     <img src="@Url.Content("/img/gallery/marsa-zayed/13.jpg")" />
+                                    </li>
+                                    <li>
+                                     <img src="@Url.Content("/img/gallery/marsa-zayed/14.jpg")" />
+                                    </li>
+                                    <li>
+                                     <img src="@Url.Content("/img/gallery/marsa-zayed/15.jpg")" />
+                                    </li>
+                                    <li>
+                                     <img src="@Url.Content("/img/gallery/marsa-zayed/16.jpg")" />
+                                    </li>
+                                    <!-- items mirrored twice, total of 12 -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rightpane">
+                    <h3>Photo Gallery
+                    </h3>
+                    <div class="desktop-gallery">
+                        <ul>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/marsa-zayed/01.jpg")" id="0" alt="" />
+                                <img src="@Url.Content("/img/gallery/marsa-zayed/02.jpg")" id="1" alt="" />
+                            </li>
+                            <li>
+                             <img src="@Url.Content("/img/gallery/marsa-zayed/03.jpg")" id="2" alt="" />
+                             <img src="@Url.Content("/img/gallery/marsa-zayed/04.jpg")" id="3" alt="" />
+                            </li>
+                            <li>
+                             <img src="@Url.Content("/img/gallery/marsa-zayed/05.jpg")" id="4" alt="" />
+                             <img src="@Url.Content("/img/gallery/marsa-zayed/06.jpg")" id="5" alt="" />
+                            </li>
+                            <li>
+                             <img src="@Url.Content("/img/gallery/marsa-zayed/07.jpg")" id="6" alt="" />
+                             <img src="@Url.Content("/img/gallery/marsa-zayed/08.jpg")" id="7" alt="" />
+                            </li>
+                            <li>
+                             <img src="@Url.Content("/img/gallery/marsa-zayed/09.jpg")" id="8" alt="" />
+                             <img src="@Url.Content("/img/gallery/marsa-zayed/10.jpg")" id="9" alt="" />
+                            </li>
+                            <li>
+                             <img src="@Url.Content("/img/gallery/marsa-zayed/11.jpg")" id="10" alt="" />
+                             <img src="@Url.Content("/img/gallery/marsa-zayed/12.jpg")" id="11" alt="" />
+                            </li>
+                            <li>
+                             <img src="@Url.Content("/img/gallery/marsa-zayed/13.jpg")" id="12" alt="" />
+                             <img src="@Url.Content("/img/gallery/marsa-zayed/14.jpg")" id="13" alt="" />
+                            </li>
+                            <li>
+                             <img src="@Url.Content("/img/gallery/marsa-zayed/15.jpg")" id="14" alt="" />
+                             <img src="@Url.Content("/img/gallery/marsa-zayed/16.jpg")" id="15" alt="" />                             
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="carousel-btns">
+                        <input class="next" type="button" value="" />
+                        <input class="prev" type="button" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="explore">
+                <h3>Explore other spectacular City Hubs of the Future
+                </h3>
+                <div class="explore-projects">
+                 <div class="explore-block">
+                  <a href="@Url.Action("st_regis","Frontend")">
+                   <div class="project-list-img">
+                    <img src="@Url.Content("/img/inner/explore6.jpg")" alt="" />
+                   </div>
+                   <p>
+                    Jordan
+                   </p>
+                   <h3>
+                    The St. Regis<br />
+                    Amman
+                   </h3>
+                  </a>
+                 </div>
+                 <div class="explore-block">
+                  <a href="@Url.Action("La_Marina_Morocco","Frontend")">
+                   <div class="project-list-img">
+                    <img src="@Url.Content("/img/inner/explore4.jpg")" alt="" />
+                   </div>
+                   <p>
+                    Morocco
+                   </p>
+                   <h3>
+                    La Marina
+                   </h3>
+                  </a>
+                 </div>
+                    <!--<div class="explore-block">
+        <a href="project-details.html">
+         <div class="project-list-img">
+          <img src="img/inner/explore2.jpg" alt="" />
+         </div>
+         <p>
+          abu dhabi
+         </p>
+         <h3>
+          Abu Dhabi City
+         </h3>
+        </a>
+       </div>-->
+                </div>
+            </div>
+        </section>
+        @{ViewData["ActionName"] = "belgrade_waterfront";}
+        @Html.Partial("_Register")
+         <script src="~/js/jquery.default.js"></script>
+
+
+    </div>
+    <!-- #main -->
+</div>
+<!-- #main-container -->
+
+@section scripts{
+
+    <!-- sidr js -->
+  @*  <script src="@Url.Content("~/js/plugins/jquery.easing.1.3.js")"></script>
+    <script src="@Url.Content("~/js/jcarousellite_1.0.1.js")"></script>
+    <script src="@Url.Content("~/js/jquery.flexslider.js")"></script>*@
+}
+
+@*@section Stylings 
+    {
+    <link rel="stylesheet" href="@Url.Content("~/css/projects.css")">
+    }*@

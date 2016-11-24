@@ -1,0 +1,32 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using EmaarEagleHills.Shared;
+@using EmaarEagleHills.Model;
+@using Umbraco.Core.Models;
+@{
+    Layout = "Master.cshtml";
+var linkId = Helper.GetCultureBasedProperty("isRegisterRequired",CurrentPage.Id);  
+}
+ <div class="main wrapper clearfix">
+
+@Html.Partial("_Slider")
+@Html.Partial("_Banner")
+@Html.Partial("_PageNavigationSection")
+@Html.Partial("_CitiesOfFuture")
+@if (linkId=="1")
+          
+{
+@Html.Partial("_Register", new User())
+
+}
+</div>
+
+ <script src="~/js/jquery.default.js"></script>
+
+@section scripts{
+
+    <!-- sidr js -->
+    <script src="~/js/jquery.bxslider.js"></script>
+}
+
+
+  

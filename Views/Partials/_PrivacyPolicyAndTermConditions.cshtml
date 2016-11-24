@@ -1,0 +1,70 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using EmaarEagleHills.Shared
+@using Newtonsoft.Json;
+@{
+   
+    string cultureParameter = string.Empty;
+
+  string currentCulture = Helper.CurrentLanguage;
+  
+ if (currentCulture == "ar")
+    {
+        cultureParameter = "?lang=ar";
+      
+    }
+
+var lnkId =Helper.GetCultureBasedProperty("isPrivacyPolicyORTermsAndConditions", CurrentPage.Id);  
+
+}
+
+ @if (!String.IsNullOrEmpty(lnkId))
+      
+
+    {
+ var hyperLinkProject=Helper.GetCultureBasedProperty("hyperLinkOnLogo", Convert.ToInt32(lnkId));
+ var  linkProject ="";
+
+if(!String.IsNullOrEmpty(hyperLinkProject))
+
+{
+    int k;
+
+    Dictionary<string, string>[] relatedLinkProject = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(hyperLinkProject);
+    linkProject = int.TryParse(relatedLinkProject[0]["link"], out k) ? Umbraco.NiceUrl(Convert.ToInt32(relatedLinkProject[0]["link"])) : relatedLinkProject[0]["link"];
+
+
+
+}
+
+
+ <section id="privacy-policy">
+            <div class="privacyPolicy">
+                <div class="logo privacy-pol">
+                    <a href="@linkProject">
+                        <img src="@Helper.GetCultureBasedImagePath("logoImage", Convert.ToInt32(lnkId))" alt="" />
+                    </a>
+                </div>
+                <h1>
+                    @Html.Raw(@Helper.GetCultureBasedProperty("heading", Convert.ToInt32(lnkId)))    
+                </h1>
+                <div class="copy-panel">
+                		
+                     @Html.Raw(@Helper.GetCultureBasedProperty("contents", Convert.ToInt32(lnkId)))    
+
+                    <span class="load-more-copy">
+                         @Html.Raw(@Helper.GetCultureBasedProperty("loadMore", Convert.ToInt32(lnkId)))     <em>+</em>
+                    </span>
+                    <div class="more-copy">
+                       
+
+                   @Html.Raw(@Helper.GetCultureBasedProperty("contentsLoadMore", Convert.ToInt32(lnkId)))    
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+}
+
+

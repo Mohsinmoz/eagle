@@ -1,0 +1,125 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using EmaarEagleHills.Shared
+@using Newtonsoft.Json;
+@{
+   
+    string cultureParameter = string.Empty;
+    int id = CurrentPage.Id;
+
+  string currentCulture = Helper.CurrentLanguage;
+  
+ if (currentCulture == "ar")
+    {
+        cultureParameter = "?lang=ar";
+      
+    }
+
+
+    var pageSize = Convert.ToInt32(Helper.GetDictionaryItemByCulture("PageSize")) ;
+
+    if (Model.Content.HasProperty("pageSize") && Convert.ToInt32(Model.Content.GetPropertyValue("pageSize")) > 0)
+    { 
+        pageSize = Convert.ToInt32(Model.Content.GetPropertyValue("pageSize"));
+    }
+
+    var page = 1; 
+    int.TryParse(Request.QueryString["page"], out page);
+    var items = Settings.IPublishedNews;
+
+    var newsItems = items.OrderBy("date descending").Skip((page - 1) * pageSize).Take(pageSize);
+  
+    var totalPages = (int)Math.Ceiling((double)items.Count() / (double)pageSize);
+
+    if (page > totalPages)
+    {
+        page = totalPages;
+    }
+    else if (page < 1)
+    {
+        page = 1;
+    }
+
+
+
+var lnkId =Helper.GetCultureBasedProperty("isPressReleasesRequired", CurrentPage.Id);  
+
+}
+ 
+ @if (!String.IsNullOrEmpty(lnkId))
+          {
+    <section id="theteam">
+            <div class="press-releases">
+                <h4>
+                  @Html.Raw(@Helper.GetDictionaryItemByCulture("PressReleases"))        
+                </h4>
+
+                <div class="pr-row">
+                	
+ @foreach (var item in newsItems)
+                 {
+
+   int j;
+   var hyperLink=Helper.GetCultureBasedProperty("detailsPageHyperLink", item.Id);
+   Dictionary<string, string>[] relatedLink = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(hyperLink);
+   var  link = int.TryParse(relatedLink[0]["link"], out j) ? Umbraco.NiceUrl(Convert.ToInt32(relatedLink[0]["link"])) : relatedLink[0]["link"];
+  // link=link +"?date="+(Convert.ToDateTime(Helper.GetCultureBasedProperty("date", item.Id)).ToLongDateString()) +"&page="+page;
+   link=link +"?page="+page;
+
+                	<div class="pr-col">
+                        <div class="col-wrapper">   
+
+
+                
+
+                           <figure>
+                                <a href="@link">
+                                    <img src="@Helper.GetCultureBasedImagePath("thumbImage", item.Id)" alt="" />
+                                </a>
+                            </figure>
+                            <h5>
+                                 @Html.Raw(@Helper.GetCultureBasedProperty("headingContents", item.Id).Replace("<p>", "").Replace("</p>", "").Split(new string[] { "<br />" }, StringSplitOptions.None)[0]) 
+                            </h5>
+                            <p>
+                                 @Html.Raw(@Convert.ToDateTime(Helper.GetCultureBasedProperty("date", item.Id)).ToLongDateString()) 
+                            </p>
+
+
+
+                        </div>
+                    </div>
+
+          
+                }
+            </div>
+            </div>
+
+
+
+            <div class="pager1">
+ @if (totalPages > 1)
+                {
+
+                <a href="?page=@(page-1)"><<</a>
+}
+
+  @for (int p = 1; p < totalPages + 1; p++)
+                        {
+                           
+                                <a href="?page=@p">@p</a>
+                           
+                        }
+            
+
+ @if (page < totalPages)
+                        {
+                            <a href="?page=@(page+1)">>></a>
+                        }
+
+
+            
+
+
+</div>
+        </section>
+
+}

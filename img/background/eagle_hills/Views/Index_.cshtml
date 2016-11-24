@@ -1,0 +1,174 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-container">
+    <div class="main wrapper clearfix">
+
+        <section id="banner">
+            <div class="banner">
+                <img class="banner-img" src="@Url.Content("~/img/background/main.jpg")" alt="" />
+                <img class="m-banner-img" src="@Url.Content("~/img/background/mobile-main.jpg")" alt="" />
+                <div class="logo">
+                    <a href="@Url.Action("Index","Frontend")">
+                        <img src="@Url.Content("~/img/generic/logo.png")" alt="" />
+                    </a>
+                </div>
+                <aside>
+                    <div class="leftpane">
+                        <h1>
+                            Shaping
+                            <br />
+                            Lives
+                        </h1>
+                        <p>
+
+                            Combining a sustainable and luxury lifestyle
+
+                        </p>
+                        <a href="@Url.Action("About","Frontend")#eaglehills" class="read-more">read more</a>
+                    </div>
+
+                </aside>
+            </div>
+        </section>
+        @*<section id="banner">
+                <div class="banner">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="@Url.Content("~/img/generic/logo.png")" alt="" />
+                        </a>
+                    </div>
+                    <aside>
+                        <div class="leftpane">
+                            <h1>Majestic Luxury Living
+                            </h1>
+                            <p>&mdash;</p>
+                            <p>
+                                We at Eagle Hills develop spectacular new city hubs in high-growth international markets. We are a global developer of iconic real estate assets and a provider of premium lifestyles. Our flagship city destinations invigorate nations and lives.
+
+                            </p>
+                            <input type="button" class="read-more" value="READ MORE" />
+                        </div>
+                    </aside>
+                </div>
+            </section>*@
+        <section class="cities-of-future">
+            <div class="cities">
+                <div class="content">
+                    <div class="left-pane">
+                        <div class="small-logo">
+                            <img src="@Url.Content("~/img/generic/logo-small.png")" alt="" />
+                        </div>
+                        <div class="cities-intro">
+                            <h1>
+                                Cities of the Future
+                            </h1>
+                            <p>
+                                Eagle Hills is a global developer of iconic city destinations.
+                            </p>
+                            <p>
+                                We create contemporary and exclusive communities where people can live, work and play.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="right-pane">
+                        <div class="carousel">
+                            <div class="list-5">
+                                <a href="@Url.Action("marsa_zayed", "Frontend")" target="_blank">
+                                    <img class="citi-img" src="@Url.Content("~/img/cities/citi-5.png")" alt="" />
+                                    <span class="title">
+                                        Marsa Zayed
+                                    </span>
+                                    <span class="country">
+                                        Jordan
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="list-6">
+                                <a href="@Url.Action("st_regis", "Frontend")" target="_blank">
+                                    <img class="citi-img" src="img/cities/citi-6.png" alt="" />
+                                    <span class="title">
+                                        St. Regis Amman
+                                    </span>
+                                    <span class="country">
+                                        Jordan
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="list-1">
+                                <a href="@Url.Action("bab_al_bahr", "Frontend")" target="_blank">
+                                    <img class="citi-img" src="img/cities/citi-1.png" alt="" />
+                                    <span class="title">
+                                        Bab Al Bahr
+                                    </span>
+                                    <span class="country">
+                                        Morocco
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="list-2">
+                                <a href="@Url.Action("belgrade_waterfront", "Frontend")" target="_blank">
+                                    <img class="citi-img" src="@Url.Content("~/img/cities/citi-2.png")" alt="" /><span class="title">
+                                        Belgrade Waterfront
+                                    </span>
+                                    <span class="country">
+                                        serbia
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="list-3">
+                                <a href="@Url.Action("marassi_al_bahrain","Frontend")">
+                                    <img class="citi-img" src="@Url.Content("~/img/cities/citi-3.png")" alt="" />
+                                    <span class="title">
+                                        Marassi Al Bahrain
+                                    </span>
+                                    <span class="country">
+                                        Bahrain
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="list-4">
+                                <a href="@Url.Action("centenary_city", "Frontend")" target="_blank">
+                                    <img class="citi-img" src="@Url.Content("~/img/cities/citi-4.png")" alt="" />
+                                    <span class="title">
+                                        Centenary City
+                                    </span>
+                                    <span class="country">
+                                        Nigeria
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="register-callout">
+                            <h3>
+                                <a href="#register">
+                                    register
+                                    <br />
+                                    your interest
+                                </a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        @* @Html.Partial("_Register", new ViewDataDictionary {{"ActionName", "Index"}})*@
+        @* @Html.Partial("_Register")*@
+        @{ViewData["ActionName"] = "Index";}
+        @Html.Partial("_Register")
+        <script src="~/js/jquery.default.js"></script>
+    </div>
+    <!-- #main -->
+</div>
+<!-- #main-container -->
+@section scripts{
+
+    <!-- sidr js -->
+    <script src="@Url.Content("~/js/jquery.bxslider.js")"></script>
+}
+@*@section Stylings
+        {
+        <link rel="stylesheet" href="@Url.Content("~/css/main.css")">
+    }*@

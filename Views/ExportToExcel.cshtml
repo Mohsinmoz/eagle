@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using EmaarEagleHills.Shared;
+@{
+    Layout = null;
+
+    int id = 0;
+    if (Request.Params["id"] != null)
+    {
+        id = Convert.ToInt32(Request.Params["id"]);
+    }
+    IPublishedContent item = Umbraco.TypedContent(id);
+
+   
+        Response.Redirect("/Handler/Services.ashx?action=exportToExcel&nodeid=" + id);
+   
+}

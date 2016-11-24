@@ -1,0 +1,318 @@
+﻿@{
+    ViewBag.Title = "Belgrade Waterfront";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="main-container">
+    <div class="project-details wrapper clearfix">
+        <div class="banner">
+            <img src="@Url.Content("/img/background/project-banner-4.jpg")" alt="" class="dekstop-banner" />
+            <img src="@Url.Content("/img/background/project-banner-mobile-4.jpg")" alt="" class="mobile-banner" />
+            <div class="logo">
+                <a href="@Url.Action("Index","Frontend")">
+                    <img src="@Url.Content("/img/generic/logo-white.png")" alt="" />
+                </a>
+            </div>
+            <div class="project-logo maarsa">
+                <a href="http://www.lamarinamorocco.com/">
+                    <img src="@Url.Content("/img/generic/babalbahr.png")" alt="" />
+                </a>
+            </div>
+            <!--
+            <div class="main-project-logo">
+                <a href="@Url.Action("Al_Maabar","Frontend")">
+                 <img src="@Url.Content("/img/generic/almaabar-logo.png")" alt="" class="dekstop-banner" />
+                 <img src="@Url.Content("/img/generic/almaabar-logo-mobile.png")" alt="" class="mobile-banner" />
+                </a>
+            </div>
+            -->
+        </div>
+        <div class="page-nav">
+            <ul>
+                <li>
+                    <a href="#overview">
+                        <span>overview
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#features">
+                        <span>features
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#gallery">
+                        <span>gallery
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <section id="overview">
+            <div class="tab">
+                <h4>overview
+                </h4>
+            </div>
+            <div class="overview">
+                <div class="singlepane">
+                    <!--
+                    <h3>Al Maabar, a subsidiary of Eagle Hills, has major projects in progress in Morocco with masterplanned, mixed-use developments that are designed to regenerate communities and act as a powerful catalyst for economic growth.
+                    </h3>
+                    -->
+                    <img src="@Url.Content("/img/inner/overview-4.jpg")" alt="" />
+                    
+                    <div class="rightpane-copy">
+                    <h3>
+                    La Marina, Rabat, Morocco
+                    </h3>
+                        <p>
+         La Marina is the epitome of contemporary living, a place where serene waterfront living meets a lively urban culture. Strategically located between Rabat and the ancient city of Salé, La Marina development is set to become a perfectly balanced urban environment where residential complexes, leisure areas, shops and galleries all seamlessly coexist. Boasting state-of-the-art facilities against a stunning backdrop, La Marina will transform Morocco’s commercial, touristic and residential landscape; offering an abundance of facilities that create the lively ambience. Located by the Atlantic Ocean to the west and the scenic Bouregreg river from the south, the project compromises a total of 1,700 units and a diverse real estate program that spread over 540,000 sq m. 
+        </p>
+                        <div class="buttons">
+         <input type="button" value="register your interest" class="register-btn" onClick="location.href = '#register'" />
+         <div class="project-btn">
+          <a href="http://www.lamarinamorocco.com/" target="_blank">
+           visit website
+          </a>
+         </div>
+        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="features">
+            <div class="tab">
+                <h4>features
+                </h4>
+            </div>
+            <div class="features">
+                <div class="leftpane">
+                    <h3>                    
+                    Exclusive Features
+                    </h3>
+                    <p>
+                     The mix of residential and commercial space will offer a diverse range of living and hospitality amenities. 
+                    </p>
+                    <ul>
+                        <li>
+                         A wide mix of residential choices including apartments, penthouses and villas 
+                        </li>
+                        <li>
+                         One 5-star hotel 
+                        </li>
+                        <li>
+                         Retail space 
+                        </li>
+                        <li>
+                         Beautiful public green space 
+                        </li>
+                        <li>
+                         Diverse F&amp;B options
+                        </li>
+						<li>
+                         Great accessibility
+                        </li>
+                    </ul>
+                </div>
+                <div class="rightpane">
+                    <img src="@Url.Content("/img/inner/features-4.jpg")" alt="" />
+                </div>
+            </div>
+        </section>
+        <section id="gallery">
+            <div class="tab">
+                <h4>gallery
+                </h4>
+            </div>
+            <div class="gallery">
+                <div class="leftpane">
+                    <div class="gallery-frame">
+                        <div class="dekstop-slider-view">
+                         <!--
+                            <div class="largerImage">
+                                <img src="@Url.Content("/img/gallery/large/33.jpg")" id="addimage" alt="" />
+                            </div>
+                            <img src="@Url.Content("/img/generic/gallery-frame.png")" class="frame" alt="" />-->
+                            <div id="slider-1" class="flexslider">
+                             <ul class="slides">
+                             <li>
+                              <div class="largerImage">
+                                <img src="@Url.Content("/img/gallery/lamarina/Morocco.jpg")" id="addimage" alt="" />
+                              </div>                              
+                             </li>
+                             <li>
+                              <div class="largerImage">
+                                <img src="@Url.Content("/img/gallery/lamarina/Morocco-2.jpg")" id="addimage" alt="" />
+                              </div>
+                              
+                             </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/lamarina/Morocco-3.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/lamarina/Morocco-4.jpg")" />
+                                     </div>
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/lamarina/Morocco-5.jpg")" />
+                                      </div>  
+                                    </li>
+									<li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/lamarina/Morocco-6.jpg")" />
+                                      </div>  
+                                    </li>
+                            </ul>                            
+                            </div>
+                            <img src="@Url.Content("/img/generic/gallery-frame.png")" class="frame" alt="" />
+                        </div>
+                        <div class="mobile-slider-view">
+                            <!-- Place somewhere in the <body> of your page -->
+                            <div id="slider" class="flexslider">
+                                <ul class="slides">
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/lamarina/Morocco.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/lamarina/Morocco-2.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/lamarina/Morocco-3.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/lamarina/Morocco-4.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/lamarina/Morocco-5.jpg")" />
+                                    </li>
+									 <li>
+                                        <img src="@Url.Content("/img/gallery/lamarina/Morocco-6.jpg")" />
+                                    </li>
+                                    <!-- items mirrored twice, total of 12 -->
+                                </ul>
+                            </div>
+                            <div id="carousel" class="flexslider">
+                                <ul class="slides">
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/lamarina/Morocco.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/lamarina/Morocco-2.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/lamarina/Morocco-3.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/lamarina/Morocco-4.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/lamarina/Morocco-5.jpg")" />
+                                    </li>
+									<li>
+                                        <img src="@Url.Content("/img/gallery/lamarina/Morocco-6.jpg")" />
+                                    </li>
+                                    <!-- items mirrored twice, total of 12 -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rightpane">
+                    <h3>Photo Gallery
+                    </h3>
+                    <div class="desktop-gallery">
+                        <ul>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/lamarina/Morocco.jpg")" id="0" alt="" />
+                                <img src="@Url.Content("/img/gallery/lamarina/Morocco-2.jpg")" id="1" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/lamarina/Morocco-3.jpg")" id="2" alt="" />
+                                <img src="@Url.Content("/img/gallery/lamarina/Morocco-4.jpg")" id="3" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/lamarina/Morocco-5.jpg")" id="4" alt="" />
+								<img src="@Url.Content("/img/gallery/lamarina/Morocco-6.jpg")" id="5" alt="" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="carousel-btns">
+                        <input class="next" type="button" value="" />
+                        <input class="prev" type="button" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="explore">
+                <h3>Explore other spectacular City Hubs of the Future
+                </h3>
+                <div class="explore-projects">
+                    <div class="explore-block">
+                        <a href="@Url.Action("marsa_zayed","Frontend")">
+                            <div class="project-list-img">
+                                <img src="@Url.Content("/img/inner/explore5.jpg")" alt="" />
+                            </div>
+                            <p>
+                                Jordan
+                            </p>
+                            <h3>Marsa Zayed
+                            </h3>
+                        </a>
+                    </div>
+                    <div class="explore-block">
+        <a href="@Url.Action("st_regis","Frontend")">
+         <div class="project-list-img">
+          <img src="@Url.Content("/img/inner/explore6.jpg")" alt="" />
+         </div>
+         <p>
+          Jordan
+         </p>
+         <h3>
+          The St. Regis<br />
+          Amman
+         </h3>
+        </a>
+       </div>
+                    <!--<div class="explore-block">
+        <a href="project-details.html">
+         <div class="project-list-img">
+          <img src="img/inner/explore2.jpg" alt="" />
+         </div>
+         <p>
+          abu dhabi
+         </p>
+         <h3>
+          Abu Dhabi City
+         </h3>
+        </a>
+       </div>-->
+                </div>
+            </div>
+        </section>
+        @{ViewData["ActionName"] = "belgrade_waterfront";}
+        @Html.Partial("_Register")
+         <script src="~/js/jquery.default.js"></script>
+
+
+    </div>
+    <!-- #main -->
+</div>
+<!-- #main-container -->
+
+@section scripts{
+
+    <!-- sidr js -->
+  @*  <script src="@Url.Content("~/js/plugins/jquery.easing.1.3.js")"></script>
+    <script src="@Url.Content("~/js/jcarousellite_1.0.1.js")"></script>
+    <script src="@Url.Content("~/js/jquery.flexslider.js")"></script>*@
+}
+
+@*@section Stylings 
+    {
+    <link rel="stylesheet" href="@Url.Content("~/css/projects.css")">
+    }*@

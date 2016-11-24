@@ -1,0 +1,442 @@
+﻿@model EmaarEagleHills.Models.User
+
+@{
+    ViewBag.Title = "_Register";
+    string ResponseAction = ViewData["ActionName"].ToString();
+    //string ss = ViewData["ActionName"].ToString();
+}
+@{
+    System.Data.DataTable table = EmaarEagleHills.Providers.Countries.Get();
+}
+<script src="~/js/vendor/jquery-1.8.2.min.js"></script>
+@*<script src="~/js/jquery.default.js"></script>*@
+<section id="register">
+    <div class="register">
+        <div class="logo-register">
+            <img src="~/img/generic/logo-register.png" alt="" />
+        </div>
+        @*@using (Html.BeginForm("Index", "Frontend", FormMethod.Post))*@
+        @using (Html.BeginForm(ResponseAction, "Frontend", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="leftpane">
+                <h1>
+                    Register
+                    <br />
+                    Your Interest
+                </h1>
+
+                @if (Model != null && Model.Id != 0 && Model.Id < 1 && (ViewBag.Success == null || @ViewBag.Error == null))
+                {
+                    <span id="message">&mdash;</span>
+                }
+
+                @if (ViewBag.Success == "true")
+                {
+                    <script type="text/javascript">
+                        window.location.hash = "register";
+                    </script>
+                }
+
+                <!--THANK-YOU-->
+                <div class="Thankyou" style="display: @(ViewBag.Success == "true" ? "block" : "none")">
+                    <p>Your enquiry was submitted and will be responded as soon as possible.</p>
+                </div>
+                <!--THANK-YOU-->
+                @if (@ViewBag.Error == "true")
+                {
+                    <script type="text/javascript">
+                        window.location.hash = "register";
+                    </script>
+                }
+
+                <!--ERROR-->
+                <div class="ErrorBox" style="display: @(ViewBag.Error == "true" ? "" : "none")">
+                    <p>Please correct the errors below!</p>
+                </div>
+                <!--ERROR-->
+
+                <div class="form" id="status">
+
+                    <fieldset>
+                        <label id="lbltitle" class="">
+                            title*
+                        </label>
+                        <div class="styled-select">
+                            <select name="Title" id="Title" class="">
+                                <option value="--">please select </option>
+                                <option value="Mr." @((Model.Title == "Mr.") ? "selected=\"selected\"" : "")>Mr.</option>
+                                <option value="Ms." @((Model.Title == "Ms.") ? "selected=\"selected\"" : "")>Ms.</option>
+                                <option value="Mrs." @((Model.Title == "Mrs.") ? "selected=\"selected\"" : "")>Mrs.</option>
+                                <option value="Dr." @((Model.Title == "Dr.") ? "selected=\"selected\"" : "")>Dr.</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label id="lblfirstname" class="@ViewBag.FirstNameError">
+                            first name*
+                        </label>
+                        @Html.TextBoxFor(i => i.FirstName, new { placeholder = "first name", name = "firstname", id = "firstname", required = "required", @class = ViewBag.FirstNameError })
+                    </fieldset>
+                    <fieldset>
+                        <label id="lbllasttname" class="@ViewBag.LastNameError">
+                            last name*
+                        </label>
+                        @Html.TextBoxFor(i => i.LastName, new { placeholder = "last name", name = "lastname", id = "lastname", required = "required", @class = ViewBag.LastNameError })
+                    </fieldset>
+                    <fieldset>
+                        <label id="lblcountry" class="@ViewBag.CountryError">
+                            Country of Residence
+                        </label>
+                        <div class="styled-select @ViewBag.CountryError">
+                            <select name="country" onchange="countryCode()" id="country" required="required">
+                                <option value="--">please select </option>
+                                @*  @foreach (var item in Enum.GetValues(typeof(EmaarEagleHills.Shared.Countries)))
+                    {
+                        <option value="@(item.ToString())" @(Model.Country == item.ToString() ? "selected=\"selected\"" : "") ? "selected=\"selected\"" : "")>@(item.ToString())</option>
+                    }*@
+                                @if (table != null && table.Rows.Count > 0)
+                                {
+                                    foreach (System.Data.DataRow row in table.Rows)
+                                    {
+                                        <option code="@row["Code"]" value="@row["NameEn"]" @((Model.Country == row["NameEn"].ToString()) ? "selected=\"selected\"" : "")>@(row["NameEN"])</option>
+
+                                    }
+                                }
+                            </select>
+
+                        </div>
+                    </fieldset>
+                    <!--
+                    <fieldset>
+                        <label id="lblmobile" style="width: 100%;" class="@ViewBag.MobileError">
+                            mobile number*
+                        </label>
+                        <input class="" id="countrycode" name="countrycode" readonly="true" placeholder="Code" required="required" type="text" value="" style="width: 26%;">
+                        @Html.TextBoxFor(i => i.Mobile, new { placeholder = "mobile number", name = "mobile", id = "mobile", required = "required", @class = ViewBag.MobileError, style = "width: 74%;" })
+
+                    </fieldset>-->
+                    <fieldset  class="mobile-number">
+                     <label id="lblmobile" style="width: 100%;" class="@ViewBag.MobileError">
+                            mobile number*
+                        </label>
+         <input type="tel" id="countrycode" placeholder="e.g. +1 702 123 4567">   
+        </fieldset>
+                    <fieldset>
+                        <label id="lblnationality" class="@ViewBag.NationalityError">
+                            nationality*
+                        </label>
+                        <div class="styled-select @ViewBag.NationalityError">
+                            <select name="nationality" id="nationality" required="required">
+                                <option value="--">please select </option>
+                                @* @foreach (var item in Enum.GetValues(typeof(EmaarEagleHills.Shared.Nationality)))
+                                    {
+                                        <option value="@(item.ToString())"  @(Model.Nationality == item.ToString() ? "selected=\"selected\"" : "")>@(item.ToString())</option>
+                                    }*@
+
+                                @if (table != null && table.Rows.Count > 0)
+                                {
+                                    foreach (System.Data.DataRow row in table.Rows)
+                                    {
+                                        <option code="@row["Code"]" value="@row["NameEn"]" @((Model.Nationality == row["NameEn"].ToString()) ? "selected=\"selected\"" : "")>@(row["NameEn"])</option>
+                                    }
+                                }
+                            </select>
+
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label id="lblemail" class="@ViewBag.EmailError">
+                            email*
+                        </label>
+                        @Html.TextBoxFor(i => i.Email, new { placeholder = "email", name = "email", id = "email", required = "required", @class = ViewBag.EmailError })
+                    </fieldset>
+                    @*<fieldset>
+                            <label id="lblAgeGroup" class="">
+                                age group
+                            </label>
+                            <div class="styled-select">
+                                <select name="AgeGroup" id="AgeGroup" class="">
+                                    <option value="--">please select </option>
+                                    <option value="18-29" @((Model.Title == "18-29") ? "selected=\"selected\"" : "")>18-29</option>
+                                    <option value="30-39" @((Model.Title == "30-39") ? "selected=\"selected\"" : "")>30-39</option>
+                                    <option value="40-49" @((Model.Title == "40-49") ? "selected=\"selected\"" : "")>40-49</option>
+                                    <option value="50-59" @((Model.Title == "50-59") ? "selected=\"selected\"" : "")>50-59</option>
+                                    <option value="60 and above" @((Model.Title == "60 and above") ? "selected=\"selected\"" : "")>60 and above</option>
+                                </select>
+                            </div>
+                        </fieldset>*@
+                    <fieldset>
+                        <label id="lblInterestedIn" class="@ViewBag.InterestedInError">
+                            interested in*
+                        </label>
+                        <div class="styled-select @ViewBag.InterestedInError">
+                            <select id="projects-dd" name="InterestedIn" required="required" class="@ViewBag.InterestedInError">
+                                <option value="--">please select </option>
+                                <option value="BelgradeWaterfront" @((Model.InterestedIn == "BelgradeWaterfront") ? "selected=\"selected\"" : "")>Belgrade Waterfront</option>
+                                <option value="CentenaryCity" @((Model.InterestedIn == "CentenaryCity") ? "selected=\"selected\"" : "")>Centenary City</option>
+                                <option value="MarassiAlBahrainBahrain" @((Model.InterestedIn == "MarassiAlBahrainBahrain") ? "selected=\"selected\"" : "")>Marassi Al Bahrain</option>
+                                <option value="Marsazayed" @((Model.InterestedIn == "Marsazayed") ? "selected=\"selected\"" : "")>Marsa zayed</option>
+                                <option value="BabAlBahr" @((Model.InterestedIn == "LaMarinaMorocco") ? "selected=\"selected\"" : "")>La Marina Morocco</option>
+                                <option value="StRegis" @((Model.InterestedIn == "StRegis") ? "selected=\"selected\"" : "")>St. Regis</option>
+                                @*<option value="BelgradeWaterfront">Belgrade Waterfront</option>
+                                    <option value="CentenaryCity">Centenary City</option>*@
+                            </select>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label id="lblAgeGroup" class="">
+                            age group
+                        </label>
+                        <div class="styled-select">
+                            <select name="AgeGroup" id="AgeGroup" class="">
+                                <option value="--">please select </option>
+                                <option value="18-29" @((Model.AgeGroup == "18-29") ? "selected=\"selected\"" : "")>18-29</option>
+                                <option value="30-39" @((Model.AgeGroup == "30-39") ? "selected=\"selected\"" : "")>30-39</option>
+                                <option value="40-49" @((Model.AgeGroup == "40-49") ? "selected=\"selected\"" : "")>40-49</option>
+                                <option value="50-59" @((Model.AgeGroup == "50-59") ? "selected=\"selected\"" : "")>50-59</option>
+                                <option value="60 and above" @((Model.AgeGroup == "60 and above") ? "selected=\"selected\"" : "")>60 and above</option>
+                            </select>
+                            <select name="AgeGroup2" id="AgeGroup2" class="">
+                                <option value="--">please select </option>
+                                <option value="20-29" @((Model.AgeGroup == "20-29") ? "selected=\"selected\"" : "")>20-29</option>
+                                <option value="30-39" @((Model.AgeGroup == "30-39") ? "selected=\"selected\"" : "")>30-39</option>
+                                <option value="40-49" @((Model.AgeGroup == "40-49") ? "selected=\"selected\"" : "")>40-49</option>
+                                <option value="50-59" @((Model.AgeGroup == "50-59") ? "selected=\"selected\"" : "")>50-59</option>
+                                <option value="60 and above" @((Model.AgeGroup == "60 and above") ? "selected=\"selected\"" : "")>60 and above</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label id="lblUnitType" class="@ViewBag.UnitTypeError">
+                            Unit Type*
+                        </label>
+                        <div class="styled-select @ViewBag.UnitTypeError">
+                            <select name="UnitType" id="UnitType" required="required">
+                                <option value="--">please select </option>
+                                <option value="Apartment" @((Model.UnitType == "Apartment") ? "selected=\"selected\"" : "")>Apartment</option>
+                                <option value="Serviced Apartment" @((Model.UnitType == "Serviced Apartment") ? "selected=\"selected\"" : "")>Serviced Apartment</option>
+                                <option value="Villa" @((Model.UnitType == "Villa") ? "selected=\"selected\"" : "")>Villa</option>
+                                <option value="Serviced Villa" @((Model.UnitType == "Serviced Villa") ? "selected=\"selected\"" : "")>Serviced Villa</option>
+                                <option value="Residential Plot" @((Model.UnitType == "Residential Plot") ? "selected=\"selected\"" : "")>Residential Plot</option>
+                                <option value="Commercial" @((Model.UnitType == "Commercial") ? "selected=\"selected\"" : "")>Commercial</option>
+                                <option value="Retail" @((Model.UnitType == "Retail") ? "selected=\"selected\"" : "")>Retail</option>
+                            </select>
+
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label id="lblPreferedCommunicationChannel" class="@ViewBag.PreferedCommunicationChannelError">
+                            Prefered Communication Channel*
+                        </label>
+                        <div class="styled-select @ViewBag.PreferedCommunicationChannelError">
+                            <select name="PreferedCommunicationChannel" id="PreferedCommunicationChannel" required="required" class="@ViewBag.PreferedCommunicationChannelError">
+                                <option value="--">please select </option>
+                                <option value="Phone" @((Model.PreferedCommunicationChannel == "Phone") ? "selected=\"selected\"" : "")>Phone</option>
+                                <option value="E-Mail" @((Model.PreferedCommunicationChannel == "E-Mail") ? "selected=\"selected\"" : "")>E-Mail</option>
+                                <option value="E-Mail/Phone" @((Model.PreferedCommunicationChannel == "E-Mail/Phone") ? "selected=\"selected\"" : "")>E-Mail/Phone</option>
+                            </select>
+
+                        </div>
+                        @* @Html.ValidationMessageFor(x=>x.PreferedCommunicationChannel)*@
+                    </fieldset>
+                    <fieldset>
+                        <label id="lblInvestmentType" class="">
+                            Investment Type
+                        </label>
+                        <div class="styled-select ">
+                            <select name="InvestmentType" id="InvestmentType">
+                                <option value="--">please select </option>
+                                <option value="Live in" @((Model.InvestmentType == "Live in") ? "selected=\"selected\"" : "")>Live in</option>
+                                <option value="Investment" @((Model.InvestmentType == "Investment") ? "selected=\"selected\"" : "")>Investment</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <div class="checkboxes">
+                        @*<h6>offering</h6>*@
+                        <h6>No. of Bedrooms</h6>
+                        <fieldset id="divid">
+                            <div class="offerings @ViewBag.bw_offeringsError">
+                                @Html.CheckBoxFor(i => i.bw_Studio, new { name = "chkbw_Studio", id = "chkbw_Studio", @class = ViewBag.bw_offeringsError })
+
+                                <label id="lblchkbw_Studio" class="@ViewBag.bw_offeringsError" for="chkbw_Studio">
+                                    Studio
+                                </label>
+                            </div>
+                            <div class="offerings @ViewBag.bw_offeringsError">
+                                @Html.CheckBoxFor(i => i.bw_Bedroom_1, new { name = "chkbw_bedroom_1", id = "chkbw_bedroom_1", @class = ViewBag.bw_offeringsError })
+
+                                <label id="lblchkbw_bedroom_1" class="@ViewBag.bw_offeringsError" for="chkbw_bedroom_1">
+                                    1 Bedroom
+                                </label>
+                            </div>
+                            <div class="offerings @ViewBag.bw_offeringsError">
+                                @Html.CheckBoxFor(i => i.bw_Bedroom_2, new { name = "chkbw_Bedroom_2", id = "chkbw_Bedroom_2", @class = ViewBag.bw_offeringsError })
+
+                                <label id="lblchkbw_Bedroom_2" class="@ViewBag.bw_offeringsError" for="chkbw_Bedroom_2">
+                                    2 Bedroom
+                                </label>
+                            </div>
+                            <div class="offerings @ViewBag.bw_offeringsError">
+                                @Html.CheckBoxFor(i => i.bw_Bedroom_3, new { name = "chkbw_Bedroom_3", id = "chkbw_Bedroom_3", @class = ViewBag.bw_offeringsError })
+
+                                <label id="lblchkbw_Bedroom_3" class="@ViewBag.bw_offeringsError" for="chkbw_Bedroom_3">
+                                    3 Bedroom
+                                </label>
+                            </div>
+                            <div class="offerings @ViewBag.bw_offeringsError">
+                                @Html.CheckBoxFor(i => i.bw_Bedroom_4Plus, new { name = "chkbw_Bedroom_4Plus", id = "chkbw_Bedroom_4Plus", @class = ViewBag.bw_offeringsError })
+
+                                <label id="lblchkbw_Bedroom_4Plus" class="@ViewBag.bw_offeringsError" for="chkbw_Bedroom_4Plus">
+                                    4 Bedroom
+                                </label>
+                            </div>
+                            <div class="offerings @ViewBag.bw_offeringsError">
+                                @Html.CheckBoxFor(i => i.bw_Bedroom_5Plus, new { name = "chkbw_Bedroom_5Plus", id = "chkbw_Bedroom_5Plus", @class = ViewBag.bw_offeringsError })
+
+                                <label id="lblchkbw_Bedroom_5Plus" class="@ViewBag.bw_offeringsError" for="chkbw_Bedroom_5Plus">
+                                    5+ Bedroom
+                                </label>
+                            </div>
+
+                        </fieldset>
+                        @*<fieldset id="divid2">
+                                <div class="offerings @ViewBag.cc_offeringsError">
+                                    @Html.CheckBoxFor(i => i.cc_Villa, new { name = "chkcc_Villa", id = "chkcc_Villa", @class = "@ViewBag.cc_offeringsError" })
+
+                                    <label id="lblchkcc_Villa" class="@ViewBag.cc_offeringsError" for="chkcc_Villa">
+                                        Villa
+                                    </label>
+                                </div>
+                                <div class="offerings @ViewBag.cc_offeringsError">
+                                    @Html.CheckBoxFor(i => i.cc_PlotsOfLand, new { name = "chkcc_PlotsOfLand", id = "chkcc_PlotsOfLand", @class = ViewBag.cc_offeringsError })
+
+                                    <label id="lblchkcc_PlotsOfLand" class="@ViewBag.cc_offeringsError" for="chkcc_PlotsOfLand">
+                                        Plots of Land
+                                    </label>
+                                </div>
+                                <span>Apartments :
+                                </span>
+                                <div class="offerings @ViewBag.cc_offeringsError">
+                                    @Html.CheckBoxFor(i => i.cc_Bedroom_1, new { name = "chkcc_Bedroom_1", id = "chkcc_Bedroom_1", @class = ViewBag.cc_offeringsError })
+
+                                    <label id="lblchkcc_Bedroom_1" class="@ViewBag.cc_offeringsError" for="chkcc_Bedroom_1">
+                                        1 Bedroom
+                                    </label>
+                                </div>
+                                <div class="offerings @ViewBag.cc_offeringsError">
+                                    @Html.CheckBoxFor(i => i.cc_Bedroom_2, new { name = "chkcc_Bedroom_2", id = "chkcc_Bedroom_2", @class = ViewBag.cc_offeringsError })
+
+                                    <label id="lblchkcc_Bedroom_2" class="@ViewBag.cc_offeringsError" for="chkcc_Bedroom_2">
+                                        2 Bedroom
+                                    </label>
+                                </div>
+                                <div class="offerings @ViewBag.cc_offeringsError">
+                                    @Html.CheckBoxFor(i => i.cc_Bedroom_3, new { name = "chkcc_Bedroom_3", id = "chkcc_Bedroom_3", @class = ViewBag.cc_offeringsError })
+
+                                    <label id="lblchkcc_Bedroom_3" class="@ViewBag.cc_offeringsError" for="chkcc_Bedroom_3">
+                                        3 Bedroom
+                                    </label>
+                                </div>
+                            </fieldset>*@
+                    </div>
+                    <div class="submit">
+                        @*<input type="button" value="submit" name="saveinterset" id="saveinterset" onclick="return POSTMethodCall();" />*@
+                        
+                        <input type="button" value="submit" name="saveinterset" id="saveinterset" />
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="rightpane">
+            <div class="contact">
+                <h5>
+                    get in touch with us
+                </h5>
+                <div class="googlemap">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3632.924244657168!2d54.43494167723186!3d24.418699239135094!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e4275f13979ff%3A0x6c6360b6d7dc1f28!2sCapital+Gate+-+Abu+Dhabi+-+United+Arab+Emirates!5e0!3m2!1sen!2s!4v1410870438490" width="400" height="300" frameborder="0" style="border: 0"></iframe>
+                </div>
+                <div class="contactdetails">
+                    <p>
+                        12th Floor, Capital Gate
+                        <br />
+                        P.O. Box 34888
+                        <br />
+                        Abu Dhabi<br />
+                        United Arab Emirates
+                    </p>
+                    <div class="numbers">
+                        <p>
+                            <span>
+                                <img src="@Url.Content("~/img/generic/phone.png")" alt="" />
+                            </span>
+                            +971 2 4958888
+                        </p>
+                        <p>
+                            <span>
+                                <img src="@Url.Content("~/img/generic/fax.png")" alt="" />
+                            </span>
+                            +971 2 6338886
+                        </p>
+                        <p>
+                            <span>
+                                <img src="@Url.Content("~/img/generic/mail.png")" alt="" />
+                            </span>
+                            <a href="mailto:info@eaglehills.com">info@eaglehills.com</a>
+                        </p>
+                        <p>
+                            <span>
+                                <img src="@Url.Content("~/img/generic/web.png")" alt="" />
+                            </span>
+                            <a href="http://www.eaglehills.com">www.eaglehills.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@if (ViewBag.Success == "true")
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            for (var a = 0; a < document.getElementsByTagName("input").length; a++) {
+                if (document.getElementsByTagName("input")[a].type == "checkbox") {
+                    document.getElementsByTagName("input")[a].checked = false;
+                }
+                else if (document.getElementsByTagName("input")[a].type == "text") {
+                    document.getElementsByTagName("input")[a].value = "";
+                }
+            }
+
+            for (var a = 0; a < document.getElementsByTagName("select").length; a++) {
+                //projects-dd
+                if (document.getElementsByTagName("select")[a].id == "projects-dd") {
+                    document.getElementsByTagName("select")[a].value = "BelgradeWaterfront";
+                }
+                else {
+                    document.getElementsByTagName("select")[a].value = "--";
+                }
+            }
+
+
+        });
+       
+    </script>
+}
+
+
+<script type="text/javascript">
+    function countryCode()
+    {
+        if ($('#country').val() != "--") {
+            $("#countrycode").val('+' + $('option:selected', '#country').attr('code'));
+        }
+        else
+        {
+            $("#countrycode").val(null);
+        }
+    }
+
+</script>

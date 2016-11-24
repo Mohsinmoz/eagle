@@ -1,0 +1,170 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using EmaarEagleHills.Shared
+@using Newtonsoft.Json;
+@{
+    IPublishedContent TopNavigation = Settings.IPublishedTopNavigation;
+    string cultureParameter = string.Empty;
+    int id = CurrentPage.Id;
+
+  string currentCulture = Helper.CurrentLanguage;
+  
+ if (currentCulture == "ar")
+    {
+        cultureParameter = "?lang=ar";
+      
+    }
+
+
+  var  Href= Helper.GetCultureBasedProperty("navigation", TopNavigation.Id);
+  Dictionary<string, string>[] relatedLink = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(Href);
+  int j,i;
+
+ var  link = int.TryParse(relatedLink[0]["link"], out j) ? Umbraco.NiceUrl(Convert.ToInt32(relatedLink[0]["link"])) : relatedLink[0]["link"];
+
+}
+
+
+<div class="header-container">
+    <header class="wrapper clearfix">
+        <nav class="navigationbar navbar-custom" role="navigation">
+            <div class="nav-desktop">
+                <div class="mobile-control">
+
+
+                    <div class="mobile-logo">
+                        <a href="@link">
+                            <img src="@Helper.GetCultureBasedImagePath("mobileLogo",TopNavigation.Id)" alt="" />
+                        </a>
+                    </div>
+
+
+                 <div class="nav-btn">
+                        <img src="@Helper.GetCultureBasedImagePath("mobileNavigationButton",TopNavigation.Id)" alt="" />
+                    </div>
+                </div>
+
+<ul>
+
+
+@foreach (IPublishedContent MenuId in Settings.IPublishedTopNavigationMenu)
+   {  
+    int k;
+
+
+    var parentMenu = Helper.GetCultureBasedProperty("parentLink", MenuId.Id);
+    var childMenu = Helper.GetCultureBasedProperty("childLink", MenuId.Id);
+    Dictionary<string, string>[] relatedParentLink = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(parentMenu); 
+    
+    var  Parentlink= int.TryParse(relatedParentLink[0]["link"], out k) ? Umbraco.NiceUrl(Convert.ToInt32(relatedParentLink[0]["link"])) : relatedParentLink[0]["link"];
+
+    Dictionary<string, string>[] ChildLink = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(childMenu);
+
+
+
+  var HomeId=Parentlink.Contains("register")? "register-btn" :"";
+
+ <li class="@(id.ToString() == relatedParentLink[0]["link"]? "active" : "")">
+
+                        @if (Parentlink.Contains("#"))  
+                        {
+
+
+
+   <a href="@Parentlink"  id="@HomeId">
+                            <span>
+                              @Html.Raw(@relatedParentLink[0]["caption"]) 
+                            </span>
+                        </a>
+
+                          }
+
+                        else
+{
+
+                        <a href="@Parentlink" >
+                            <span>
+                              @Html.Raw(@relatedParentLink[0]["caption"]) 
+                            </span>
+                        </a>
+}
+@if(ChildLink != null && ChildLink.Any())
+{
+
+ <div class="@(Parentlink.Contains("about")? "subnav" :"subnav nav-projects")">
+      <ul>
+
+   @foreach (var rl in ChildLink)
+       {
+         var  lnks = int.TryParse(rl["link"], out i) ? Umbraco.NiceUrl(Convert.ToInt32(rl["link"])) : rl["link"];
+         var cap = rl["caption"];
+                  
+
+       
+
+
+
+  if (lnks.StartsWith("#"))
+            {
+
+ <li>
+
+                                    <a href="@(Parentlink+lnks)" >
+                                       @Html.Raw(@cap) 
+                                    </a>
+
+</li>
+            }
+
+else
+
+
+{
+ <li>
+
+
+  <a href="@(lnks)">
+
+
+ <div class="nav-img">
+ 
+                                        </div>
+                                        <div class="title">
+
+ @Html.Raw(@cap)                                            
+
+                                        </div>
+
+
+                  
+       </a>
+
+
+</li>
+}
+
+}
+
+
+
+  </ul>
+
+      </div>                             
+
+}
+                            
+
+</li>
+  }
+
+</ul>
+
+          </div>
+        </nav>
+    </header>
+</div>
+
+@section scripts{
+
+    <!-- sidr js -->
+    <script src="@Url.Content("~/js/jquery.bxslider.js")"></script>
+}

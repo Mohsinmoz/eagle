@@ -1,0 +1,118 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using EmaarEagleHills.Shared
+@using Newtonsoft.Json;
+@{
+   
+    string cultureParameter = string.Empty;
+
+  string currentCulture = Helper.CurrentLanguage;
+  
+ if (currentCulture == "ar")
+    {
+        cultureParameter = "?lang=ar";
+      
+    }
+
+var lnkId =Helper.GetCultureBasedProperty("isOverviewRequired", CurrentPage.Id);  
+
+}
+
+ @if (!String.IsNullOrEmpty(lnkId))
+          {
+
+
+   var Registerlinks = Helper.GetCultureBasedProperty("registerYourInterest", Convert.ToInt32(lnkId));
+   var  VisitWebsitelinks=Helper.GetCultureBasedProperty("visitWebsite", Convert.ToInt32(lnkId));
+
+  
+var RegisterLnk="";
+var RegisterCap="";
+
+var VisitWebsiteLnk="";
+var VisitWebsiteCap="";
+  
+if(!String.IsNullOrEmpty(Registerlinks))
+
+{
+ Dictionary<string, string>[] relatedRegisterlinks = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(Registerlinks);
+ int j;
+ var  Register = int.TryParse(relatedRegisterlinks[0]["link"], out j) ? Umbraco.NiceUrl(Convert.ToInt32(relatedRegisterlinks[0]["link"])) : relatedRegisterlinks[0]["link"];
+ RegisterLnk=Register;
+ RegisterCap=relatedRegisterlinks[0]["caption"];
+}
+
+if(!String.IsNullOrEmpty(Registerlinks))
+
+{
+ Dictionary<string, string>[]  relatedVisitWebsitelinks = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(VisitWebsitelinks);
+ int k;
+ var  VisitWebsite = int.TryParse(relatedVisitWebsitelinks[0]["link"], out k) ? Umbraco.NiceUrl(Convert.ToInt32(relatedVisitWebsitelinks[0]["link"])) : relatedVisitWebsitelinks[0]["link"];
+
+ VisitWebsiteLnk=VisitWebsite;
+ VisitWebsiteCap=relatedVisitWebsitelinks[0]["caption"];
+
+}
+
+
+ var pdfLink=Helper.GetCultureBasedImagePath("selectPdfFile",Convert.ToInt32(lnkId));
+
+
+
+   <section id="overview">
+    <div class="tab">
+     <h4>
+     @Helper.GetDictionaryItemByCulture("Overview") 
+     </h4>
+    </div>
+     <div class="overview">
+      <div class="singlepane">
+       <h3>
+     @Html.Raw(@Helper.GetCultureBasedProperty("heading", Convert.ToInt32(lnkId)))         
+       </h3>
+       <img src="@Helper.GetCultureBasedImagePath("image",Convert.ToInt32(lnkId))" alt="" />
+       <div class="rightpane-copy">
+      
+   @Html.Raw(@Helper.GetCultureBasedProperty("contents", Convert.ToInt32(lnkId)))  
+
+     
+        <div class="buttons">
+
+
+@if(!String.IsNullOrEmpty(Registerlinks))
+
+{
+         <input type="button" value="@RegisterCap" class="register-btn" onClick="location.href = '@RegisterLnk'" />
+
+}
+
+@if(!String.IsNullOrEmpty(pdfLink))
+
+{
+         <a href="@pdfLink" class="download-btn" target="_blank">
+           @Html.Raw(@Helper.GetCultureBasedProperty("pdfButtonText", Convert.ToInt32(lnkId)))
+         </a>
+
+}
+
+@if(!String.IsNullOrEmpty(VisitWebsitelinks))
+
+{
+         <input type="button" value="share" class="share-btn" />
+         
+         <div class="project-btn">
+          <a href="@VisitWebsiteLnk" target="_blank">
+          @VisitWebsiteCap
+          </a>
+         </div>
+
+}
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+
+
+
+
+}

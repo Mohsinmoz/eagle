@@ -1,0 +1,46 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using EmaarEagleHills.Shared
+@using Newtonsoft.Json;
+@{
+   
+    string cultureParameter = string.Empty;
+
+  string currentCulture = Helper.CurrentLanguage;
+  
+ if (currentCulture == "ar")
+    {
+        cultureParameter = "?lang=ar";
+      
+    }
+
+var lnkId =Helper.GetCultureBasedProperty("isFeaturesRequired", CurrentPage.Id);  
+
+}
+
+ @if (!String.IsNullOrEmpty(lnkId))
+          {
+
+
+ <section id="features">
+     <div class="tab">
+      <h4>
+      @Helper.GetDictionaryItemByCulture("Features")  
+      </h4>
+     </div>
+     <div class="features">
+      <div class="leftpane">
+       <h3>
+      @Html.Raw(@Helper.GetCultureBasedProperty("heading", Convert.ToInt32(lnkId)))      
+       </h3>
+       
+     @Html.Raw(@Helper.GetCultureBasedProperty("contents", Convert.ToInt32(lnkId)))     
+
+      </div>
+      <div class="rightpane">
+       <img src="@Helper.GetCultureBasedImagePath("image",Convert.ToInt32(lnkId))" alt="" />
+      </div>
+     </div>
+    </section>
+
+
+}

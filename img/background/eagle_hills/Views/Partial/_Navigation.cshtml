@@ -1,0 +1,224 @@
+﻿<div class="header-container">
+    <header class="wrapper clearfix">
+        <nav class="navigationbar navbar-custom" role="navigation">
+            <div class="nav-desktop">
+                <div class="mobile-control">
+                    <div class="mobile-logo">
+                        <a href="#">
+                            <img src="@Url.Content("~/img/generic/mobile-logo.png")" alt="" />
+                        </a>
+                    </div>
+                    <div class="nav-btn">
+                        <img src="@Url.Content("~/img/generic/mobile-nav-btn.png")" alt="" />
+                    </div>
+                </div>
+                <ul>
+                    <li class="@(Request.RawUrl.ToLower().Equals("/") ? "active" : "")">
+                        <a href="@Url.Action("Index", "Frontend")">
+                            <span>
+                                home
+                            </span>
+                        </a>
+                    </li>
+                    <li class="@(Request.RawUrl.ToLower().Contains("/about") ? "active" : "")">
+                        <a href="@Url.Action("about", "Frontend")">
+                            <span>
+                                about
+                            </span>
+                        </a>
+                        <div class="subnav">
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("about", "Frontend")#eaglehills">
+                                        eagle hills
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="about#theteam">
+                                        the team
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("about", "Frontend")#vision">
+                                        vision &amp; mission
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="@((Request.RawUrl.ToLower().Contains("/belgrade_waterfront")
+                    || Request.RawUrl.ToLower().Contains("/marassi_al_bahrain")
+                    || Request.RawUrl.ToLower().Contains("/Al_Maabar")
+                    || Request.RawUrl.ToLower().Contains("/centenary_city")) ? "active" : "")">
+
+                        <a>
+                            <span>
+                                international projects
+                            </span>
+                        </a>
+                        <div class="subnav nav-projects">
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("belgrade_waterfront", "Frontend")">
+                                        <div class="nav-img">
+                                            <img src="@Url.Content("~/img/nav/img-2.jpg")" alt="" />
+                                        </div>
+                                        <div class="title">
+                                            <em>
+                                                serbia
+                                            </em>
+                                            <p>
+                                                Belgrade Waterfront
+
+                                            </p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("centenary_city", "Frontend")">
+                                        <div class="title">
+                                            <em>
+                                                nigeria
+                                            </em>
+                                            <p>
+                                                Centenary City
+
+                                            </p>
+                                        </div>
+                                        <div class="nav-img">
+                                            <img src="@Url.Content("~/img/nav/img-3.jpg")" alt="" />
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("marassi_al_bahrain", "Frontend")">
+                                        <div class="nav-img">
+                                            <img src="@Url.Content("~/img/nav/img-4.jpg")" alt="" />
+                                        </div>
+                                        <div class="title">
+                                            <em>
+                                                Bahrain
+                                            </em>
+                                            <p>
+                                                Marassi Al Bahrain
+                                            </p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <!--<a href="@Url.Action("st_regis", "Frontend")">-->
+                                    <a href="http://www.stregisammanresidences.com/">
+                                        <div class="title">
+                                            <em>
+                                             Jordan
+                                            </em>
+                                            <p>
+                                             The St. Regis Amman
+                                            </p>
+                                        </div>
+                                        <div class="nav-img">
+                                            <img src="@Url.Content("~/img/nav/img-6.jpg")" alt="" />
+                                        </div>
+                                    </a>
+                                </li>
+                                 <li>
+                                    <a href="@Url.Action("marsa_zayed", "Frontend")">
+                                        <div class="nav-img">
+                                            <img src="@Url.Content("~/img/nav/img-7.jpg")" alt="" />
+                                        </div>
+                                        <div class="title">
+                                            <em>
+                                                JORDAN
+                                            </em>
+                                            <p>
+                                                Marsa Zayed
+                                            </p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("La_Marina_Morocco", "Frontend")">
+                                        <div class="title">
+                                            <em>
+                                             Morocco
+                                            </em>
+                                            <p>
+                                              La Marina Morocco
+                                            </p>
+                                        </div>
+                                        <div class="nav-img">
+                                            <img src="@Url.Content("~/img/nav/img-8.jpg")" alt="" />
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    @*   <li>
+                         <a href="project-details.html">
+                          <span>
+                           project details
+                          </span>
+                         </a>
+                         <div class="subnav nav-projects">
+                          <ul>
+                           <li>
+                            <a href="@Url.Action("BelgradeWaterfront","Frontend")">
+                             <div class="title">
+                              <em>
+                               uae
+                              </em>
+                              <p>
+                               Belgrade Waterfront
+                              </p>
+                             </div>
+                             <div class="nav-img">
+                              <img src="@Url.Content("~/img/nav/img-1.jpg")" alt="" />
+                             </div>
+                             </a>
+                           </li>
+                           <li>
+                            <a href="@Url.Action("CentenaryCity","Frontend")">
+                            <div class="nav-img">
+                              <img src="@Url.Content("~/img/nav/img-2.jpg")" alt="" />
+                             </div>
+                             <div class="title">
+                              <em>
+                               uae
+                              </em>
+                              <p>
+                               Centenary City
+                              </p>
+                             </div>
+                             </a>
+                           </li>
+                          </ul>
+                         </div>
+                        </li>*@
+                    <li class="@(Request.RawUrl.ToLower().Equals("/media-centre") ? "active" : "")">
+                        <a href="@Url.Action("media-centre", "Frontend")">
+                            <span>
+                                media centre
+                            </span>
+                        </a>
+                    </li>
+                    <li class="@(Request.RawUrl.ToLower().Equals("/career") ? "active" : "")">
+                        <a href="@Url.Action("Career", "Frontend")">
+                            <span>
+                                Career
+                            </span>
+                        </a>
+                    </li>
+                    <li class="@(Request.RawUrl.ToLower().Contains("/register") ? "active" : "")">
+                        <a href="@Url.Action("register", "Frontend")#register" id="register-btn">
+                            <span>
+                                register your interest
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+</div>

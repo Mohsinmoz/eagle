@@ -1,0 +1,370 @@
+﻿@{
+    ViewBag.Title = "Marassi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="main-container">
+    <div class="project-details wrapper clearfix">
+        <div class="banner">
+            <img src="@Url.Content("/img/background/project-banner-3.jpg")" alt="" class="dekstop-banner" />
+            <img src="@Url.Content("/img/background/project-banner-mobile-3.jpg")" alt="" class="mobile-banner" />
+            <div class="logo">
+                <a href="@Url.Action("Index","Frontend")">
+                    <img src="@Url.Content("/img/generic/logo-white.png")" alt="" />
+                </a>
+            </div>
+            <div class="project-logo marassi">
+                <!--<a href="http://www.belgradewaterfront.com/Belgrade-Waterfront/1/Belgrade-Waterfront.shtml" target="_blank">-->
+                    <img src="@Url.Content("/img/generic/marssa-logo.png")" alt="" class="desktop-logo" />
+                    <img src="@Url.Content("/img/generic/mab-mobilelogo.png")" alt="" class="mobile-logo" />
+                <!--</a>-->
+            </div>
+        </div>
+        <div class="page-nav">
+            <ul>
+                <li>
+                    <a href="#overview">
+                        <span>overview
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#features">
+                        <span>features
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#gallery">
+                        <span>gallery
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <section id="overview">
+            <div class="tab">
+                <h4>overview
+                </h4>
+            </div>
+            <div class="overview">
+                <div class="singlepane">
+                    <h3>
+                     'Marassi Al Bahrain' is the highly distinguished urban project developed as a joint venture between Diyar Al Muharraq and Eagle Hills. An opulent yet sustainable development that will deliver a unique waterside lifestyle.
+                    </h3>
+                    <img src="@Url.Content("/img/inner/overview-3.jpg")" alt="" />
+                    
+                    <div class="rightpane-copy">
+                        <p>
+         The idyllic island location is set to become a unique destination in the Kingdom of Bahrain. Offering luxury hotels and restaurants, high-end residential apartment buildings, business centres, leisure and entertainment facilities, a harbour for cruise liners to dock, a central garden and a traditional Souq. The development covers over 190,000 square metres of beachfront shopping, with the Mall as one of the major tourist attractions. The hotels, restaurants and cafés will provide spectacular views, surrounded by water and 1,980 metres of sandy beaches. The architecture combines traditional and cultural elements with exclusive modern facilities.
+        </p>
+                        <div class="buttons">
+                        <input type="button" value="register your interest" class="register-btn" onClick="location.href = '#register'" />
+         <input type="button" value="share" class="share-btn" />
+         <!--<div class="project-btn">
+          <a href="http://www.diyar.bh/en" target="_blank">
+           visit website
+          </a>
+         </div>-->
+        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="features">
+            <div class="tab">
+                <h4>features
+                </h4>
+            </div>
+            <div class="features">
+                <div class="leftpane">
+                    <h3>Exclusive Features
+                    </h3>
+                    <p>
+                        Where heritage meets modernity. The outdoor spaces, waterfront living and elite facilities combines the perfect destination.
+                    </p>
+                    <ul>
+                        <li>
+                         A fully integrated harbour 
+                        </li>
+                        <li>
+                         1,980 metres of distinguished beaches that go around the city 
+                        </li>
+                        <li>
+                         A Central Garden and attractive public spaces for residents and visitors 
+                        </li>
+                        <li>
+                         A traditional Souq 
+                        </li>
+                        <li>
+                         80,000 square metre business centre 
+                        </li>
+                        <li>
+                         A city district that's alive day and night 
+                        </li>
+                        <li>
+                         Shopping, leisure and entertainment centre set in a distinguished location 
+                        </li>
+                        <li>
+                         Beachside promenades with appealing attractions
+                        </li>
+                    </ul>
+                </div>
+                <div class="rightpane">
+                    <img src="@Url.Content("/img/inner/features-3.jpg")" alt="" />
+                </div>
+            </div>
+        </section>
+        <section id="gallery">
+            <div class="tab">
+                <h4>gallery
+                </h4>
+            </div>
+            <div class="gallery">
+                <div class="leftpane">
+                    <div class="gallery-frame">
+                        <div class="dekstop-slider-view">
+                            <div id="slider-1" class="flexslider">
+                             <ul class="slides">
+                             <li>
+                              <div class="largerImage">
+                                <img src="@Url.Content("/img/gallery/Marrasi/14.jpg")" id="addimage" alt="" />
+                              </div>                              
+                             </li>
+                             <li>
+                              <div class="largerImage">
+                                <img src="@Url.Content("/img/gallery/Marrasi/15.jpg")" id="addimage" alt="" />
+                              </div>
+                              
+                             </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/Marrasi/16.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/Marrasi/17.jpg")" />
+                                     </div>
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/Marrasi/18.jpg")" />
+                                      </div>  
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/Marrasi/19.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/Marrasi/20.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/Marrasi/21.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/Marrasi/22.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/Marrasi/23.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/Marrasi/24.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage"> 
+                                        <img src="@Url.Content("/img/gallery/Marrasi/25.jpg")" />
+                                     </div>   
+                                    </li>     
+                            </ul>                            
+                            </div>
+                            <img src="@Url.Content("/img/generic/gallery-frame.png")" class="frame" alt="" />
+                        </div>
+                        <div class="mobile-slider-view">
+                            <!-- Place somewhere in the <body> of your page -->
+                            <div id="slider" class="flexslider">
+                                <ul class="slides">
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/14.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/15.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/16.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/17.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/18.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/19.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/20.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/21.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/22.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/23.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/24.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/25.jpg")" />
+                                    </li>
+                                    <!-- items mirrored twice, total of 12 -->
+                                </ul>
+                            </div>
+                            <div id="carousel" class="flexslider">
+                                <ul class="slides">
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/14.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/15.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/16.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/17.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/18.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/19.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/20.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/21.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/22.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/23.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/24.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/25.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/Marrasi/26.jpg")" />
+                                    </li>
+                                    <!-- items mirrored twice, total of 12 -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rightpane">
+                    <h3>Photo Gallery
+                    </h3>
+                    <div class="desktop-gallery">
+                        <ul>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/Marrasi/14.jpg")" id="0" alt="" />
+                                <img src="@Url.Content("/img/gallery/Marrasi/15.jpg")" id="1" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/Marrasi/16.jpg")" id="2" alt="" />
+                                <img src="@Url.Content("/img/gallery/Marrasi/17.jpg")" id="3" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/Marrasi/18.jpg")" id="4" alt="" />
+                                <img src="@Url.Content("/img/gallery/Marrasi/19.jpg")" id="5" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/Marrasi/20.jpg")" id="6" alt="" />
+                                <img src="@Url.Content("/img/gallery/Marrasi/21.jpg")" id="7" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/Marrasi/22.jpg")" id="8" alt="" />
+                                <img src="@Url.Content("/img/gallery/Marrasi/23.jpg")" id="9" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/Marrasi/24.jpg")" id="10" alt="" />
+                                <img src="@Url.Content("/img/gallery/Marrasi/25.jpg")" id="11" alt="" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="carousel-btns">
+                        <input class="next" type="button" value="" />
+                        <input class="prev" type="button" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="explore">
+                <h3>Explore other spectacular City Hubs of the Future
+                </h3>
+                <div class="explore-projects">
+                    <div class="explore-block">
+                        <a href="@Url.Action("centenary_city","Frontend")">
+                            <div class="project-list-img">
+                                <img src="@Url.Content("/img/inner/explore1.jpg")" alt="" />
+                            </div>
+                            <p>
+                                nigeria
+                            </p>
+                            <h3>Centenary City
+                            </h3>
+                        </a>
+                    </div>
+                    <div class="explore-block">
+                     <a href="@Url.Action("belgrade_waterfront","Frontend")">
+                      <div class="project-list-img">
+                       <img src="@Url.Content("/img/inner/explore.jpg")" alt="" />
+                      </div>
+                      <p>
+                       serbia
+                      </p>
+                      <h3>Belgrade Waterfront</h3>
+                     </a>
+                    </div>
+                    <!--<div class="explore-block">
+        <a href="project-details.html">
+         <div class="project-list-img">
+          <img src="img/inner/explore2.jpg" alt="" />
+         </div>
+         <p>
+          abu dhabi
+         </p>
+         <h3>
+          Abu Dhabi City
+         </h3>
+        </a>
+       </div>-->
+                </div>
+            </div>
+        </section>
+        @{ViewData["ActionName"] = "marassi_al_bahrain";}
+        @Html.Partial("_Register")
+         <script src="~/js/jquery.default.js"></script>
+    </div>
+    <!-- #main -->
+</div>

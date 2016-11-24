@@ -1,0 +1,60 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using EmaarEagleHills.Shared
+@using Newtonsoft.Json;
+@{
+   
+    string cultureParameter = string.Empty;
+
+  string currentCulture = Helper.CurrentLanguage;
+  
+ if (currentCulture == "ar")
+    {
+        cultureParameter = "?lang=ar";
+      
+    }
+
+var lnkId =Helper.GetCultureBasedProperty("isPageNavigationSectionRequired", CurrentPage.Id);  
+
+
+
+ if (!String.IsNullOrEmpty(lnkId))
+          {
+
+ var list = Helper.GetCultureBasedProperty("hyperLink", Convert.ToInt32(lnkId));
+
+ Dictionary<string, string>[] Links = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(list);
+
+
+if(Links != null && Links.Any())
+{
+
+   
+                  
+
+ <div class="page-nav">
+            <ul>
+
+@foreach (var rl in Links)
+       {
+         int i;
+         var  lnks = int.TryParse(rl["link"], out i) ? Umbraco.NiceUrl(Convert.ToInt32(rl["link"])) : rl["link"];
+         var cap = rl["caption"];
+                <li>
+                    <a href="@lnks">
+                        <span> @Html.Raw(@cap)
+                        </span>
+                    </a>
+             
+                </li>
+             }
+
+ 
+            </ul>
+        </div>
+
+
+}
+
+}
+
+}

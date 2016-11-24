@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-container">
+    @{ViewData["ActionName"] = "Register";}
+    @Html.Partial("_Register")
+
+    <script src="~/js/jquery.default.js"></script>
+</div>

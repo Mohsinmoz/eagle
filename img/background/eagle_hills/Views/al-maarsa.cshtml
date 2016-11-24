@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "Belgrade Waterfront";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string register_URL = Url.Action("register", "FrontEnd") + "#register";
+}
+
+
+<div class="main-container">
+    <div class="project-details wrapper clearfix">
+        <div class="banner">
+         <div class="three-col">
+          <div class="logo">
+           <a href="@Url.Action("Index","Frontend")">
+            <img src="@Url.Content("/img/generic/logo-white.png")" alt="" />
+           </a>
+          </div>
+          <div class="project-logo">
+            <img src="@Url.Content("/img/generic/almaabar-logo.png")" alt="" class="dekstop-banner" />
+            <img src="@Url.Content("/img/generic/almaabar-logo-mobile.png")" alt="" class="mobile-banner" />
+          </div>
+          <div class="property">
+           <img src="@Url.Content("~/img/background/maabar-1.jpg")" alt="" />
+           <div class="details">
+            <div class="learn-more">
+             <a href="@Url.Action("st_regis","Frontend")">
+              learn more
+             </a>
+            </div>
+           </div>
+          </div>
+          <div class="property">
+           <img src="@Url.Content("~/img/background/maabar-2.jpg")" alt="" />
+           <div class="details">
+            <div class="learn-more">
+             <a href="@Url.Action("marsa_zayed","Frontend")">
+              learn more
+             </a>
+            </div>
+           </div>
+          </div>
+          <div class="property">
+           <img src="@Url.Content("~/img/background/maabar-3.jpg")" alt="" />
+           <div class="details">
+            <div class="learn-more">
+             <a href="@Url.Action("bab_al_bahr","Frontend")">
+              learn more
+             </a>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <section id="overview">
+            <div class="tab">
+                <h4>overview
+                </h4>
+            </div>
+            <div class="overview">
+                <div class="singlepane">
+                    <h3>
+                    Al Maabar, a subsidiary of Eagle Hills, has major projects in progress in Morocco and Jordan with master-planned, mixed-use developments that are designed to regenerate communities and act as a powerful catalyst for economic growth.
+                    </h3>
+                    <img src="@Url.Content("/img/inner/overview-5.jpg")" alt="" />
+                    
+                    <!--<div class="rightpane-copy">
+                        <p>
+         Built around the tallest tower in the region, this monumental master-planned district will bring new life to an otherwise under-utilized site, and to the city as a whole. This lively mixed-use quarter, resting over the river, will bring further pride and passion to the city’s new heart. Connected with the historic town by an efficient tram network, the new centre will become a hub for businesses in all sectors, with a focus on technology and design. 
+        </p>
+        <p>
+         Belgrade Mall, the region’s largest, is a magnet for shopping, entertainment and tourism, while new performance venues cater to culture and the arts. 
+        </p>
+        <p>
+         Riverside restaurants and cafés keep the whole area buzzing day and night as locals and tourists stroll along the promenade—the natural destination for big public celebrations.
+        </p>
+        <p>
+         The mix of districts, medium and high-rise buildings, and extensive green spaces create a lively new destination that will draw both new residents and international visitors.
+        </p>
+                        
+                    </div>-->
+                </div>
+            </div>
+        </section>
+         <script src="~/js/jquery.default.js"></script>
+
+
+    </div>
+    <!-- #main -->
+</div>
+<!-- #main-container -->
+
+@section scripts{   
+    <!-- sidr js -->
+  @*  <script src="@Url.Content("~/js/plugins/jquery.easing.1.3.js")"></script>
+    <script src="@Url.Content("~/js/jcarousellite_1.0.1.js")"></script>
+    <script src="@Url.Content("~/js/jquery.flexslider.js")"></script>*@
+}
+
+@*@section Stylings 
+    {
+    <link rel="stylesheet" href="@Url.Content("~/css/projects.css")">
+    }*@

@@ -1,0 +1,134 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedContent>
+@using EmaarEagleHills.Shared
+@using Newtonsoft.Json;
+@{
+   
+    string cultureParameter = string.Empty;
+  
+
+  string currentCulture = Helper.CurrentLanguage;
+  
+ if (currentCulture == "ar")
+    {
+        cultureParameter = "?lang=ar";
+      
+    }
+
+else
+
+{
+cultureParameter="?";
+}
+
+var lnkId =Helper.GetCultureBasedProperty("isNewsDetailSectionRequired", Model.Id);  
+
+}
+
+
+ @if (!String.IsNullOrEmpty(lnkId))
+          {
+
+ var imageId = Helper.GetCultureBasedProperty("image", Convert.ToInt32(lnkId)).ToString();
+ String []val=imageId.Split(','); 
+ int cnt = val.Length;
+
+        <section id="overview">
+            <div class="news">
+
+                <div class="news-details">
+                    <div class="news-content">
+                        <span>
+                     
+
+                       @Convert.ToDateTime(Helper.GetCultureBasedProperty("date",Convert.ToInt32(lnkId))).ToString("MMMM dd, yyyy") 
+                        </span>
+                        <h5>
+                            @Html.Raw(@Helper.GetCultureBasedProperty("headingContents",Convert.ToInt32(lnkId)).Replace("<br />", "<h5>").Replace("<p>", "<h5>"))    
+
+                        </h5>
+
+
+
+                        <div class="img-caption">
+
+
+  @if (cnt==1)
+        {
+
+
+                            <img src="@Helper.GetCultureBasedImagePath("image", Convert.ToInt32(lnkId))" alt="" />
+
+      }
+
+
+
+
+   @if(cnt>1)
+        {
+
+ 
+                
+
+                  
+for(int i=0;i<= val.Length-1;i++)
+                        {
+
+
+
+ if (i==0)
+        {
+
+  <img src="@Umbraco.TypedMedia(Convert.ToInt32(val[i])).Url" alt="" />
+
+
+
+}
+
+else
+
+{
+
+                       <span class="image-desc">
+
+                            </span>
+
+
+                            <img src="@Umbraco.TypedMedia(Convert.ToInt32(val[i])).Url" alt="" />
+}
+
+}
+}
+ 
+ 
+                            <span class="image-desc">
+                               @Html.Raw(@Helper.GetCultureBasedProperty("imageBelowContents",Convert.ToInt32(lnkId)))     
+                            </span>
+                        </div>
+                      
+
+                       @Html.Raw(@Helper.GetCultureBasedProperty("content",Convert.ToInt32(lnkId)))   
+
+ 
+                        
+                    <div class="back-btn">
+                            <a href="@(Settings.GetCurrentPageContentById(1371).Url+ cultureParameter+ "page="+ @Request.QueryString["page"] )">
+                              @Html.Raw(@Helper.GetDictionaryItemByCulture("back"))   
+                            </a>
+                        </div>
+                  
+
+                     <div class="share-print">
+                            <span class="email">
+                                <a href="mailto:@Helper.GetCultureBasedProperty("mailTo",Convert.ToInt32(lnkId))"><img src="/img/generic/email.png" alt="" /></a>
+                            </span>
+                            <span>
+                                <a href="javascript:window.print()">
+                                    <img src="/img/generic/print.png" alt="" />
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+}

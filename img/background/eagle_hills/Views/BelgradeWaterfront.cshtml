@@ -1,0 +1,420 @@
+﻿@{
+    ViewBag.Title = "Belgrade Waterfront";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="main-container">
+    <div class="project-details wrapper clearfix">
+        <div class="banner">
+            <img src="@Url.Content("/img/background/project-banner-1.jpg")" alt="" class="dekstop-banner" />
+            <img src="@Url.Content("/img/background/project-banner-mobile-1.jpg")" alt="" class="mobile-banner" />
+            <div class="logo">
+                <a href="@Url.Action("Index","Frontend")">
+                    <img src="@Url.Content("/img/generic/logo-white.png")" alt="" />
+                </a>
+            </div>
+            <div class="project-logo">
+                <a href="http://www.belgradewaterfront.com/Belgrade-Waterfront/1/Belgrade-Waterfront.shtml" target="_blank">
+                    <img src="@Url.Content("/img/generic/bw-logo.png")" alt="" class="desktop-logo" />
+                    <img src="@Url.Content("/img/generic/bw-mobilelogo.png")" alt="" class="mobile-logo" />
+                </a>
+            </div>
+        </div>
+        <div class="page-nav">
+            <ul>
+                <li>
+                    <a href="#overview">
+                        <span>overview
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#features">
+                        <span>features
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#gallery">
+                        <span>gallery
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <section id="overview">
+            <div class="tab">
+                <h4>overview
+                </h4>
+            </div>
+            <div class="overview">
+                <div class="singlepane">
+                    <h3>
+                    Belgrade Waterfront takes urban renewal to new heights, bridging the past with the future, history with modernity. A smart city for a future that combines commerce, culture and community. A truly mixed-use environment that will usher in a new era of prosperity for the capital.
+                    </h3>
+                    <img src="@Url.Content("/img/inner/overview.jpg")" alt="" />
+                    
+                    <div class="rightpane-copy">
+                        
+        <p>
+         Designed and developed to the highest international standards, Belgrade Waterfront seeks to set a new benchmark in modern city regeneration, with a focus on conserving heritage, strengthening road and transport infrastructure and enhancing the environment.
+        </p>
+        <p>
+         This lively mixed-use quarter consisting of medium- to high-rise buildings, set by the river Sava, will bring further pride and passion to the heart of the city. Connected to historic Belgrade by a modern tram network, the Modern European City will become a hub for business, tourism and living; with the addition of a mall, which will include leading outlets and international brands, and performance venues catering to culture and the arts. The development plan incorporates a large central park and a spectacular boulevard lined by cafés, restaurants and retail outlets.
+        </p>
+        <!--
+        <p>
+         The mix of districts, medium and high-rise buildings, and extensive green spaces create a lively new destination that will draw both new residents and international visitors.
+        </p>
+        -->
+                        <div class="buttons">
+         <input type="button" value="register your interest" class="register-btn" onClick="location.href = '#register'" />
+         <a href="PDF/Belgrade.pdf" class="download-btn" target="_blank">
+          download brochure - 74MB
+         </a>
+         <input type="button" value="share" class="share-btn" />
+         <div class="project-btn">
+          <a href="http://www.belgradewaterfront.com/" target="_blank">
+           visit website
+          </a>
+         </div>
+        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="features">
+            <div class="tab">
+                <h4>features
+                </h4>
+            </div>
+            <div class="features">
+                <div class="leftpane">
+                    <h3>World Class Features
+                    </h3>
+                    <p>
+                     The mix of districts, medium and high-rise buildings, and extensive green spaces create a lively new destination that will draw both new residents and international visitors. 
+                    </p>
+                    <ul>
+                        <li>
+                        	An extension of the city, not an isolated district 
+                        </li>
+                        <li>
+                        	A riverside promenade with appealing attractions
+                        </li>
+                        <li>
+                         Attractive public spaces for residents and visitors 
+                        </li>
+                        <li>
+                         New cultural jewels from historic buildings 
+                        </li>
+                        <li>
+                         Distinct neighbourhood communities
+                        </li>
+                        <li>
+                         A public realm with preference to pedestrians 
+                        </li>
+                        <li>
+                        	A city district that's alive day and night 
+                        </li>
+                        <li>
+                         A high-value centre with a strong brand identity
+                        </li>
+                    </ul>
+                </div>
+                <div class="rightpane">
+                    <img src="@Url.Content("/img/inner/features.jpg")" alt="" />
+                </div>
+            </div>
+        </section>
+        <section id="gallery">
+            <div class="tab">
+                <h4>gallery
+                </h4>
+            </div>
+            <div class="gallery">
+                <div class="leftpane">
+                    <div class="gallery-frame">
+                         <div class="dekstop-slider-view">
+                         <!--
+                            <div class="largerImage">
+                                <img src="@Url.Content("/img/gallery/large/33.jpg")" id="addimage" alt="" />
+                            </div>
+                            <img src="@Url.Content("/img/generic/gallery-frame.png")" class="frame" alt="" />-->
+                            <div id="slider-1" class="flexslider">
+                             <ul class="slides">
+                             <li>
+                              <div class="largerImage">
+                                <img src="@Url.Content("/img/gallery/belgrade/01.jpg")" id="addimage" alt="" />
+                              </div>                              
+                             </li>
+                             <li>
+                              <div class="largerImage">
+                                <img src="@Url.Content("/img/gallery/belgrade/02.jpg")" id="addimage" alt="" />
+                              </div>
+                              
+                             </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/belgrade/03.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/belgrade/04.jpg")" />
+                                     </div>
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/belgrade/05.jpg")" />
+                                      </div>  
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/belgrade/06.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/belgrade/07.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/belgrade/08.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/belgrade/09.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/belgrade/10.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/belgrade/11.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage"> 
+                                        <img src="@Url.Content("/img/gallery/belgrade/12.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage"> 
+                                        <img src="@Url.Content("/img/gallery/belgrade/13.jpg")" />
+                                     </div>   
+                                    </li>           
+                            </ul>                            
+                            </div>
+                            <img src="@Url.Content("/img/generic/gallery-frame.png")" class="frame" alt="" />
+                        </div>
+                        <div class="mobile-slider-view">
+                            <!-- Place somewhere in the <body> of your page -->
+                            <div id="slider" class="flexslider">
+                                <ul class="slides">
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/01.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/02.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/03.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/04.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/05.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/06.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/07.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/08.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/09.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/10.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/11.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/12.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/13.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/14.jpg")" />
+                                    </li>
+                                    <!-- items mirrored twice, total of 12 -->
+                                </ul>
+                            </div>
+                            <div id="carousel" class="flexslider">
+                                <ul class="slides">
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/01.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/02.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/03.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/04.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/05.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/06.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/07.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/08.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/09.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/10.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/11.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/12.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/belgrade/13.jpg")" />
+                                    </li>
+
+                                    <!-- items mirrored twice, total of 12 -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rightpane">
+                    <h3>Photo Gallery
+                    </h3>
+                    <div class="desktop-gallery">
+                        <ul>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/belgrade/01.jpg")" id="0" alt="" />
+                                <img src="@Url.Content("/img/gallery/belgrade/02.jpg")" id="1" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/belgrade/03.jpg")" id="2" alt="" />
+                                <img src="@Url.Content("/img/gallery/belgrade/04.jpg")" id="3" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/belgrade/05.jpg")" id="4" alt="" />
+                                <img src="@Url.Content("/img/gallery/belgrade/06.jpg")" id="5" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/belgrade/07.jpg")" id="6" alt="" />
+                                <img src="@Url.Content("/img/gallery/belgrade/08.jpg")" id="7" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/belgrade/09.jpg")" id="8" alt="" />
+                                <img src="@Url.Content("/img/gallery/belgrade/10.jpg")" id="9" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/belgrade/11.jpg")" id="10" alt="" />
+                                <img src="@Url.Content("/img/gallery/belgrade/12.jpg")" id="11" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/belgrade/13.jpg")" id="12" alt="" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="carousel-btns">
+                        <input class="next" type="button" value="" />
+                        <input class="prev" type="button" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="explore">
+                <h3>Explore other spectacular City Hubs of the Future
+                </h3>
+                <div class="explore-projects">
+                    <div class="explore-block">
+                        <a href="@Url.Action("centenary_city","Frontend")">
+                            <div class="project-list-img">
+                                <img src="@Url.Content("/img/inner/explore1.jpg")" alt="" />
+                            </div>
+                            <p>
+                                nigeria
+                            </p>
+                            <h3>Centenary City
+                            </h3>
+                        </a>
+                    </div>
+                    <div class="explore-block">
+        <a href="@Url.Action("marassi_al_bahrain","Frontend")">
+         <div class="project-list-img">
+          <img src="@Url.Content("/img/inner/explore3.jpg")" alt="" />
+         </div>
+         <p>
+          Bahrain
+         </p>
+         <h3>
+          Marassi Al Bahrain
+         </h3>
+        </a>
+       </div>
+                    <!--<div class="explore-block">
+        <a href="project-details.html">
+         <div class="project-list-img">
+          <img src="img/inner/explore2.jpg" alt="" />
+         </div>
+         <p>
+          abu dhabi
+         </p>
+         <h3>
+          Abu Dhabi City
+         </h3>
+        </a>
+       </div>-->
+                </div>
+            </div>
+        </section>
+        @{ViewData["ActionName"] = "belgrade_waterfront";}
+        @Html.Partial("_Register")
+         <script src="~/js/jquery.default.js"></script>
+
+
+    </div>
+    <!-- #main -->
+</div>
+<!-- #main-container -->
+
+@section scripts{
+
+    <!-- sidr js -->
+  @*  <script src="@Url.Content("~/js/plugins/jquery.easing.1.3.js")"></script>
+    <script src="@Url.Content("~/js/jcarousellite_1.0.1.js")"></script>
+    <script src="@Url.Content("~/js/jquery.flexslider.js")"></script>*@
+}
+
+@*@section Stylings 
+    {
+    <link rel="stylesheet" href="@Url.Content("~/css/projects.css")">
+    }*@

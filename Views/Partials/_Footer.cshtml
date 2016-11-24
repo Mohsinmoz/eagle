@@ -1,0 +1,51 @@
+﻿
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using EmaarEagleHills.Shared
+@using Newtonsoft.Json;
+@{
+
+
+ string cultureParameter = string.Empty;
+
+  
+  string currentCulture = Helper.CurrentLanguage;
+  
+ if (currentCulture == "ar")
+    {
+        cultureParameter = "?lang=ar";
+      
+    }
+
+
+                string pagesCommaSeparated = Convert.ToString(Helper.GetCultureBasedProperty("termAndConditionAndPrivacyPolicy", Settings.IPublishedCopyRight.Id));
+                string[] pagess = pagesCommaSeparated.Split(',');
+                IEnumerable<IPublishedContent>  Copy= Umbraco.TypedContent(pagess);
+
+}
+
+
+<div class="footer-container">
+   <footer>
+    <ul>
+
+  @foreach (IPublishedContent item in Copy)
+           {  
+      <li>
+
+
+                        <a href="@(item.Url+ cultureParameter)" >
+                           @Helper.GetCultureBasedProperty("pageTitle", item.Id)
+                        </a>
+                   
+   </li>
+
+}
+    </ul>
+    <div class="copyrights">
+    @Html.Raw(@Helper.GetCultureBasedProperty("copyRights", Settings.IPublishedCopyRight.Id))
+    </div>
+   </footer>
+  </div>
+
+
+

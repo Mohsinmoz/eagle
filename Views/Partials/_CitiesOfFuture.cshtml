@@ -1,0 +1,98 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using EmaarEagleHills.Shared
+@using Newtonsoft.Json;
+@{
+   
+    string cultureParameter = string.Empty;
+    int id = CurrentPage.Id;
+
+  string currentCulture = Helper.CurrentLanguage;
+  
+ if (currentCulture == "ar")
+    {
+        cultureParameter = "?lang=ar";
+      
+    }
+}
+        
+@{
+
+ var lnkId =Helper.GetCultureBasedProperty("isCitiesOfTheFutureRequired", CurrentPage.Id);  
+
+ if (!String.IsNullOrEmpty(lnkId))
+          {
+
+ IEnumerable<IPublishedContent> IPublishedCitiesOfFuture =Settings.GetCurrentPageChildContentById(Convert.ToInt32(lnkId));
+
+
+
+<section class="cities-of-future">
+            <div class="cities">
+                <div class="content">
+                    <div class="left-pane">
+                        <div class="small-logo">
+                            <img src="@Helper.GetCultureBasedImagePath("logoImage", Convert.ToInt32(lnkId))" alt="" />
+                        </div>
+                        <div class="cities-intro">
+                            <h1>
+                               @Html.Raw(@Helper.GetCultureBasedProperty("heading",Convert.ToInt32(lnkId)))     
+                            </h1>
+                            <p>
+                                @Html.Raw(@Helper.GetCultureBasedProperty("content", Convert.ToInt32(lnkId))) 
+                            </p>
+                          
+                        </div>
+                    </div>
+                    <div class="right-pane">
+                        <div class="carousel">
+                   
+
+
+
+ @foreach (IPublishedContent item in IPublishedCitiesOfFuture)
+           {  
+  int j;
+
+    var hyperLink=Helper.GetCultureBasedProperty("hyperLink", item.Id);
+
+   Dictionary<string, string>[] relatedLink = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(hyperLink);
+   var  link = int.TryParse(relatedLink[0]["link"], out j) ? Umbraco.NiceUrl(Convert.ToInt32(relatedLink[0]["link"])) : relatedLink[0]["link"];
+
+
+
+                            <div class="@Helper.GetCultureBasedProperty("cssList", item.Id)">
+                                <a href="@link" target="_blank">
+                                    <img  class="citi-img" src="@Helper.GetCultureBasedImagePath("cityImage", item.Id)" alt="@Helper.GetCultureBasedImagePath("activeImage", item.Id)" />
+                                 
+                                    <span class="title">
+                                         @Html.Raw(@Helper.GetCultureBasedProperty("title", item.Id)) 
+                                    </span>
+                                    <span class="country">
+                                        @Html.Raw(@Helper.GetCultureBasedProperty("countryName", item.Id)) 
+                                    </span>
+                                </a>
+                            </div>
+                        
+
+      }
+
+                          
+                        </div>
+                        <div class="register-callout">
+                            <h3>
+                                <a href="#register">
+                                    register
+                                    <br />
+                                    your interest
+                                </a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+}
+
+}

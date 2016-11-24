@@ -1,0 +1,417 @@
+﻿@{
+    ViewBag.Title = "CentenaryCity";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+  <div class="main-container">
+   <div class="project-details wrapper clearfix">
+    <div class="banner">
+     <img src="@Url.Content("/img/background/project-banner-2.jpg")" alt="" class="dekstop-banner" />
+     <img src="@Url.Content("/img/background/project-banner-mobile.jpg")" alt="" class="mobile-banner" />
+     <div class="logo">
+      <a href="@Url.Action("Index","Frontend")">
+       <img src="@Url.Content("/img/generic/logo-white.png")" alt="" />
+      </a>
+     </div>
+     <div class="project-logo cc">
+      <a href="#">
+       <img src="@Url.Content("/img/generic/cc-logo.png")" alt="" class="desktop-logo" />
+       <img src="@Url.Content("/img/generic/cc-mobilelogo.png")" alt="" class="mobile-logo" />
+      </a>
+     </div>
+    </div>
+    <div class="page-nav">
+     <ul>
+      <li>
+       <a href="#overview">
+        <span>
+         overview
+        </span>
+       </a>
+      </li>
+      <li>
+       <a href="#features">
+        <span>
+         features
+        </span>
+       </a>
+      </li>
+      <li>
+       <a href="#gallery">
+       <span>
+        gallery
+       </span>
+       </a>
+      </li>
+     </ul>
+    </div>
+    <section id="overview">
+    <div class="tab">
+     <h4>
+      overview
+     </h4>
+    </div>
+     <div class="overview">
+      <div class="singlepane">
+       <h3>
+        Centenary City is designed as a new economic and social hub for Nigeria – a complementary and energizing addition to the city of Abuja. The 12.6 square kilometre of site area in Centenary City is designed to work in harmony with nature, creating the ultimate lifestyle community. 
+       </h3>
+       <img src="img/inner/overview-2.jpg" alt="" />
+       <div class="rightpane-copy">
+        <p>
+         Positioned to fit in among the natural landscape, offering both an impressive downtown skyline and peaceful suburban living. A city within a city, this project is a truly multifunctional development that offers a complete cosmopolitan lifestyle to its residents, as well as serves as a hub for the wider community. Centenary City, a smart, inter-connected urban centre that draws on the innovative technologies, will have a central business district, a financial centre, a museum and cultural centre to promote African and global arts, world-class hotels, business and technology parks, residential districts, an 18-hole golf course, industry centres, sports and leisure facilities and community amenities.
+        </p>
+        <!--
+        <p>
+         A city within a city, this project is a truly multifunctional development that offers a complete cosmopolitan lifestyle to its residents, as well as serves as a hub for the wider community.
+        </p>
+        
+        <p>
+         Abuja Centenary City, a smart, inter-connected urban centre that draws on the latest technologies, will have a central business district, a financial centre, a museum &amp; cultural centre to promote African and global arts, world-class hotels, business and technology parks, residential districts, an 18-hole golf course, and industry centres, sports and leisure facilities and community amenities.
+        </p>
+        -->
+        <div class="buttons">
+         <input type="button" value="register your interest" class="register-btn" onClick="location.href = '#register'" />
+         <a href="PDF/Centenary.pdf" class="download-btn" target="_blank">
+          download brochure - 6MB
+         </a>
+         <input type="button" value="share" class="share-btn" />
+         <div class="project-btn">
+          <a href="http://www.centenarycity.com/" target="_blank">
+           visit website
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section id="features">
+     <div class="tab">
+      <h4>
+       features
+      </h4>
+     </div>
+     <div class="features">
+      <div class="leftpane">
+       <h3>
+        Exclusive Features
+       </h3>
+       
+       <p>
+        The mix of districts, medium and high-rise buildings, and extensive green spaces create a lively new destination that will draw both new residents and international visitors.
+       </p>
+       <ul>
+        <li>
+         	An extension of the city, not an isolated district
+        </li>
+        <li>
+         A riverside promenade with appealing attractions
+        </li>
+        <li>
+         	Attractive public spaces for residents and visitors
+        </li>
+        <li>
+         Distinct neighbourhood communities 
+        </li>
+        <li>
+         A public realm with preference to pedestrians
+        </li>
+        <li>
+         A city district that's alive day and night 
+        </li>
+        <li>
+         A high-value centre with a strong brand identity 
+        </li>
+        <li>
+         New cultural jewels from historic buildings
+        </li>
+       </ul>
+      </div>
+      <div class="rightpane">
+       <img src="@Url.Content("/img/inner/features-2.jpg")" alt="" />
+      </div>
+     </div>
+    </section>
+    <section id="gallery">
+     <div class="tab">
+      <h4>
+       gallery
+      </h4>
+     </div>
+     <div class="gallery">
+      <div class="leftpane">
+       <div class="gallery-frame">
+        <div class="dekstop-slider-view">
+                         <!--
+                            <div class="largerImage">
+                                <img src="@Url.Content("/img/gallery/large/33.jpg")" id="addimage" alt="" />
+                            </div>
+                            <img src="@Url.Content("/img/generic/gallery-frame.png")" class="frame" alt="" />-->
+                            <div id="slider-1" class="flexslider">
+                             <ul class="slides">
+                             <li>
+                              <div class="largerImage">
+                                <img src="@Url.Content("/img/gallery/centrary/01.jpg")" id="addimage" alt="" />
+                              </div>                              
+                             </li>
+                             <li>
+                              <div class="largerImage">
+                                <img src="@Url.Content("/img/gallery/centrary/02.jpg")" id="addimage" alt="" />
+                              </div>
+                              
+                             </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/centrary/03.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/centrary/04.jpg")" />
+                                     </div>
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/centrary/05.jpg")" />
+                                      </div>  
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/centrary/06.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/centrary/07.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/centrary/08.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/centrary/09.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/centrary/10.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage">
+                                        <img src="@Url.Content("/img/gallery/centrary/11.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage"> 
+                                        <img src="@Url.Content("/img/gallery/centrary/12.jpg")" />
+                                     </div>   
+                                    </li>
+                                    <li>
+                                     <div class="largerImage"> 
+                                        <img src="@Url.Content("/img/gallery/centrary/13.jpg")" />
+                                     </div>   
+                                    </li>           
+                                    <li>
+                                     <div class="largerImage"> 
+                                        <img src="@Url.Content("/img/gallery/centrary/14.jpg")" />
+                                     </div>   
+                                    </li>           
+                            </ul>                            
+                            </div>
+                            <img src="@Url.Content("/img/generic/gallery-frame.png")" class="frame" alt="" />
+                        </div>
+        <div class="mobile-slider-view">
+         <!-- Place somewhere in the <body> of your page -->
+         <div id="slider" class="flexslider">
+           <ul class="slides">
+             <li>
+               <img src="@Url.Content("/img/gallery/centrary/01.jpg")" />
+             </li>
+             <li>
+               <img src="@Url.Content("/img/gallery/centrary/02.jpg")" />
+             </li>
+             <li>
+               <img src="@Url.Content("/img/gallery/centrary/03.jpg")" />
+             </li>
+             <li>
+               <img src="@Url.Content("/img/gallery/centrary/04.jpg")" />
+             </li>
+             <li>
+               <img src="@Url.Content("/img/gallery/centrary/05.jpg")" />
+             </li>
+             <li>
+               <img src="@Url.Content("/img/gallery/centrary/06.jpg")" />
+             </li>
+             <li>
+               <img src="@Url.Content("/img/gallery/centrary/07.jpg")" />
+             </li>
+             <li>
+               <img src="@Url.Content("/img/gallery/centrary/08.jpg")" />
+             </li>
+			 <li>
+               <img src="@Url.Content("/img/gallery/centrary/09.jpg")" />
+             </li>
+			 <li>
+               <img src="@Url.Content("/img/gallery/centrary/10.jpg")" />
+             </li>
+			 <li>
+               <img src="@Url.Content("/img/gallery/centrary/11.jpg")" />
+             </li>
+			 <li>
+               <img src="@Url.Content("/img/gallery/centrary/12.jpg")" />
+             </li>
+			 <li>
+               <img src="@Url.Content("/img/gallery/centrary/13.jpg")" />
+             </li>
+			  <li>
+               <img src="@Url.Content("/img/gallery/centrary/14.jpg")" />
+             </li>
+             <!-- items mirrored twice, total of 12 -->
+           </ul>
+         </div>
+         <div id="carousel" class="flexslider">
+          <ul class="slides">
+           <li>
+               <img src="@Url.Content("/img/gallery/centrary/01.jpg")" />
+             </li>
+             <li>
+               <img src="@Url.Content("/img/gallery/centrary/02.jpg")" />
+             </li>
+             <li>
+               <img src="@Url.Content("/img/gallery/centrary/03.jpg")" />
+             </li>
+             <li>
+               <img src="@Url.Content("/img/gallery/centrary/04.jpg")" />
+             </li>
+             <li>
+               <img src="@Url.Content("/img/gallery/centrary/05.jpg")" />
+             </li>
+             <li>
+               <img src="@Url.Content("/img/gallery/centrary/06.jpg")" />
+             </li>
+             <li>
+               <img src="@Url.Content("/img/gallery/centrary/07.jpg")" />
+             </li>
+             <li>
+               <img src="@Url.Content("/img/gallery/centrary/08.jpg")" />
+             </li>
+			 <li>
+               <img src="@Url.Content("/img/gallery/centrary/09.jpg")" />
+             </li>
+			 <li>
+               <img src="@Url.Content("/img/gallery/centrary/10.jpg")" />
+             </li>
+			 <li>
+               <img src="@Url.Content("/img/gallery/centrary/11.jpg")" />
+             </li>
+			 <li>
+               <img src="@Url.Content("/img/gallery/centrary/12.jpg")" />
+             </li>
+			 <li>
+               <img src="@Url.Content("/img/gallery/centrary/13.jpg")" />
+             </li>
+			  <li>
+               <img src="@Url.Content("/img/gallery/centrary/14.jpg")" />
+             </li>
+			 
+            <!-- items mirrored twice, total of 12 -->
+          </ul>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="rightpane">
+       <h3>
+        Photo Gallery
+       </h3>
+       <div class="desktop-gallery">
+        <ul>
+          <li>
+          <img src="@Url.Content("/img/gallery/centrary/01.jpg")" id="0" alt="" />
+          <img src="@Url.Content("/img/gallery/centrary/02.jpg")" id="1" alt="" />
+         </li>
+         <li>
+          <img src="@Url.Content("/img/gallery/centrary/03.jpg")" id="2" alt="" />
+          <img src="@Url.Content("/img/gallery/centrary/04.jpg")" id="3" alt="" />
+         </li>
+         <li>
+          <img src="@Url.Content("/img/gallery/centrary/05.jpg")" id="4" alt="" />
+          <img src="@Url.Content("/img/gallery/centrary/06.jpg")" id="5" alt="" />
+         </li>
+         <li>
+          <img src="@Url.Content("/img/gallery/centrary/07.jpg")" id="6" alt="" />
+          <img src="@Url.Content("/img/gallery/centrary/08.jpg")" id="7" alt="" />
+         </li>
+         <li>
+          <img src="@Url.Content("/img/gallery/centrary/09.jpg")" id="8" alt="" />
+          <img src="@Url.Content("/img/gallery/centrary/10.jpg")" id="9" alt="" />
+         </li>
+         <li>
+          <img src="@Url.Content("/img/gallery/centrary/11.jpg")" id="10" alt="" />
+          <img src="@Url.Content("/img/gallery/centrary/12.jpg")" id="11" alt="" />
+         </li>
+         <li>
+          <img src="@Url.Content("/img/gallery/centrary/13.jpg")" id="12" alt="" />
+		   <img src="@Url.Content("/img/gallery/centrary/14.jpg")" id="13" alt="" />
+         </li>
+        </ul>
+       </div>
+       <div class="carousel-btns">
+       <input class="next" type="button" value="" />
+        <input class="prev" type="button" value="" />
+       </div>
+      </div>                                                                                                                                                  
+     </div>
+     <div class="explore">
+      <h3>
+       Explore other spectacular City Hubs of the Future
+      </h3>
+      <div class="explore-projects">
+       <div class="explore-block">
+        <a href="@Url.Action("belgrade_waterfront","Frontend")">
+         <div class="project-list-img">
+          <img src="@Url.Content("/img/inner/explore.jpg")" alt="" />
+         </div>
+         <p>
+          Serbia
+         </p>
+         <h3>
+          Belgrade Waterfront
+         </h3>
+        </a>
+       </div>
+       <div class="explore-block">
+        <a href="@Url.Action("marassi_al_bahrain","Frontend")">
+         <div class="project-list-img">
+          <img src="@Url.Content("/img/inner/explore3.jpg")" alt="" />
+         </div>
+         <p>
+          Bahrain
+         </p>
+         <h3>
+          Marassi Al Bahrain
+         </h3>
+        </a>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+       @{ViewData["ActionName"] = "centenary_city";}
+        @Html.Partial("_Register")
+        <script src="~/js/jquery.default.js"></script>
+
+
+   </div> <!-- #main -->
+  </div> <!-- #main-container -->
+
+
+@*@section Stylings 
+    {
+    <link rel="stylesheet" href="@Url.Content("~/css/projects.css")">
+    }*@

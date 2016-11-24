@@ -1,0 +1,88 @@
+﻿
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using EmaarEagleHills.Shared
+@using Newtonsoft.Json;
+@{
+   
+    string cultureParameter = string.Empty;
+
+  string currentCulture = Helper.CurrentLanguage;
+  
+ if (currentCulture == "ar")
+    {
+        cultureParameter = "?lang=ar";
+      
+    }
+
+var lnkId =Helper.GetCultureBasedProperty("isTheTeamsRequired", CurrentPage.Id);  
+
+int i=1;
+}
+
+ @if (!String.IsNullOrEmpty(lnkId))
+          {
+
+ IEnumerable<IPublishedContent> IPublishedTheTeam =Settings.GetCurrentPageChildContentById(Convert.ToInt32(lnkId));
+
+ <section id="theteam">
+            <div class="tab">
+                <h4>
+               @Helper.GetDictionaryItemByCulture("TheTeam")   
+                </h4>
+            </div>
+
+
+            <div class="theteam">
+                <div class="singlepane">
+                    <h3>
+                        @Helper.GetDictionaryItemByCulture("OurRenownedTeam")   
+                    </h3>
+                    <div class="accordians">
+                        <div class="accordion">
+
+
+ @foreach (IPublishedContent item in IPublishedTheTeam)
+           {  
+
+                            <div class="accordion-item tt-@i">
+                               
+                                <h5>
+                                    @Html.Raw(@Helper.GetCultureBasedProperty("name",item.Id)) 
+                                </h5>
+                                <span>
+                                    @Html.Raw(@Helper.GetCultureBasedProperty("designationTitle", item.Id)) 
+                                </span>
+
+                                <img src="~/img/generic/tt-arrow-2.png" class="tt-arrow-2" alt="" />
+
+                                <div class="data">
+                                   
+                                  @Html.Raw(@Helper.GetCultureBasedProperty("contents", item.Id)) 
+
+                                </div>
+
+
+                           
+              </div>
+
+                    
+
+i=i+1;
+if(i==7)
+{
+i=1;
+}
+}
+
+       
+                        </div>
+                    </div>
+                    <p>
+                      @Helper.GetDictionaryItemByCulture("OurRenownedTeamContents")    
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+}

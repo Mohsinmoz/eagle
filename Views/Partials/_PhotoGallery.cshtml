@@ -1,0 +1,169 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedContent>
+@using EmaarEagleHills.Shared;
+@using Newtonsoft.Json;
+
+
+
+@{
+
+ var lnkId =Helper.GetCultureBasedProperty("isPhotoGalleryRequired", Convert.ToInt32(Model.Id));  
+ 
+}
+
+
+@{
+
+if(!String.IsNullOrEmpty(lnkId))
+          {
+
+   var Explore1links = Helper.GetCultureBasedProperty("explore1HyperLink", Convert.ToInt32(lnkId));
+   var Explore2links=Helper.GetCultureBasedProperty("explore2HyperLink", Convert.ToInt32(lnkId));
+
+   Dictionary<string, string>[] relatedLinkexplore1 = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(Explore1links);
+   Dictionary<string, string>[]  relatedLinkexplore2 = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(Explore2links);
+
+   int j;
+   int k;
+  var  explore1 = int.TryParse(relatedLinkexplore1[0]["link"], out j) ? Umbraco.NiceUrl(Convert.ToInt32(relatedLinkexplore1[0]["link"])) : relatedLinkexplore1[0]["link"];
+  var  explore2 = int.TryParse(relatedLinkexplore2[0]["link"], out k) ? Umbraco.NiceUrl(Convert.ToInt32(relatedLinkexplore2[0]["link"])) : relatedLinkexplore2[0]["link"];
+
+ var Id =Helper.GetCultureBasedProperty("largerImages",Convert.ToInt32(lnkId)); 
+ String []val=Id.Split(','); 
+
+
+   <section id="gallery" class="press-release-gallery">
+            <div class="tab">
+                <h4> @Helper.GetDictionaryItemByCulture("Gallery")</h4>
+            </div>
+            <div class="gallery">
+                <div class="leftpane">
+                    <div class="gallery-frame">
+                        <div class="dekstop-slider-view">
+                            <div id="slider-1" class="flexslider flexslider-media">
+                             <ul class="slides">
+
+@for(int i=0;i<= val.Length-1;i++)
+
+{
+
+                             <li>
+                              <div class="largerImage">
+                                <img src="@Umbraco.TypedMedia(Convert.ToInt32(val[i])).Url" id="addimage" alt="" />
+                              </div>                              
+                             </li>
+
+}
+                           
+                            </ul>                            
+                            </div>
+                            <img src="@Url.Content("/img/generic/gallery-frame.png")" class="frame" alt="" />
+                        </div>
+                        <div class="mobile-slider-view">
+                            <!-- Place somewhere in the <body> of your page -->
+                            <div id="slider" class="flexslider">
+                                <ul class="slides">
+                                   @for(int n=0;n<= val.Length-1;n++)
+
+                                         {
+                                     <li>
+                                        <img src="@Umbraco.TypedMedia(Convert.ToInt32(val[n])).Url" />
+                                    </li>
+                                  }
+
+                                    <!-- items mirrored twice, total of 12 -->
+                                </ul>
+                            </div>
+                            <div id="carousel" class="flexslider">
+                                <ul class="slides">
+                                   
+@for(int m=0;m<= val.Length-1;m++)
+
+{
+                                    <li>
+                                        <img src="@Umbraco.TypedMedia(Convert.ToInt32(val[m])).Url" />
+                                    </li>
+                                  
+}
+                                    <!-- items mirrored twice, total of 12 -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rightpane">
+                    <h3> @Helper.GetDictionaryItemByCulture("PhotoGallery")
+                    </h3>
+                    <div class="desktop-gallery">
+                        <ul>
+
+@for(int l=0;l<= val.Length-1;l++)
+
+{
+
+
+@Html.Raw(l % 2 == 0 ? "<li>" : "")
+  <img src="@Umbraco.TypedMedia(Convert.ToInt32(val[l])).Url" id="@l" alt="" />
+
+@Html.Raw(l % 2 == 0 ? "" : "</li>")
+
+
+                                                                                   
+                         
+    } 
+
+
+
+                        </ul>
+
+
+
+
+                    </div>
+                    <div class="carousel-btns">
+                        <input class="next" type="button" value="" />
+                        <input class="prev" type="button" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="explore">
+                <h3>
+               @Html.Raw(@Helper.GetCultureBasedProperty("exploreHeading", Convert.ToInt32(lnkId)))          <!-- Explore other spectacular City Hubs of the Future -->
+                </h3>
+                <div class="explore-projects">
+                    <div class="explore-block">
+                        <a href="@explore1">
+                            <div class="project-list-img">
+                                <img src="@Helper.GetCultureBasedImagePath("explore1Image", Convert.ToInt32(lnkId))" alt="@Helper.GetCultureBasedImagePath("explore1Activeimage", Convert.ToInt32(lnkId))"/>
+                            </div>
+                            <p>
+                                   @Html.Raw(@Helper.GetCultureBasedProperty("explore1Content", Convert.ToInt32(lnkId)))               <!--nigeria-->
+                            </p>
+                            <h3>
+                                    @Html.Raw(@Helper.GetCultureBasedProperty("explore1Heading", Convert.ToInt32(lnkId)))              <!-- Centenary City -->
+                            </h3>
+                        </a>
+                    </div>
+                    <div class="explore-block">
+                        <a href="@explore2">
+                            <div class="project-list-img">
+                                <img src="@Helper.GetCultureBasedImagePath("explore2Image", Convert.ToInt32(lnkId))" alt="@Helper.GetCultureBasedImagePath("explore2ActiveImage", Convert.ToInt32(lnkId))" />
+                            </div>
+                            <p>
+                                 @Html.Raw(@Helper.GetCultureBasedProperty("explore2Content", Convert.ToInt32(lnkId)))     <!--Bahrain-->
+                            </p>
+                            <h3>
+                                @Html.Raw(@Helper.GetCultureBasedProperty("explore2Heading", Convert.ToInt32(lnkId)))    <!-- Marassi Al Bahrain -->
+                            </h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+}
+}

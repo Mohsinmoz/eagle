@@ -1,0 +1,340 @@
+﻿@{
+    ViewBag.Title = "news2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-container">
+    <div class="project-details wrapper clearfix">
+        <section id="overview">
+            <div class="tab">
+                <h4>
+                    overview
+                </h4>
+            </div>
+            <div class="news">
+                <h3>
+                    News
+                </h3>
+                <div class="news-wrapper">
+                    @foreach (var item in Model)
+                    {
+                        <div class="news-head">
+                            <div class="headline">
+                                <div class="copy">
+                                    <span>
+                                        @item.PubDate
+                                    </span>
+                                    <h5>
+                                        <a href="@item.Link" target="_blank">
+                                            @item.Title
+                                        </a>
+                                    </h5>
+                                    <p>
+                                        @item.Description
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </section>
+        <!--Press eleases-->
+        <section id="theteam">
+            <div class="press-releases">
+                <h4>
+                    Press Release
+                </h4>
+                <div class="pr-row">
+                    <div class="pr-col">
+                        <div class="col-wrapper">
+                            <figure>
+                                <a href="/news-detail-1">
+                                    <img src="@Url.Content("~/img/media/press-releases/pr-thumb-2.jpg")" alt="" />
+                                </a>
+                            </figure>
+                            <h5>
+                                Centenary City reveals its first residential and hospitality launch with The Address Abuja
+                            </h5>
+                            <p>
+                                Tuesday, November 28, 2014
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pr-col">
+                        <div class="col-wrapper">
+                            <figure>
+                                <a href="/news-detail-2">
+                                    <img src="@Url.Content("~/img/media/press-releases/pr-thumb-2.jpg")" alt="" />
+                                </a>
+                            </figure>
+                            <h5>
+                                Eagle Hills appoints Julius Berger as construction partner for Abuja Centenary City
+                            </h5>
+                            <p>
+                                Tuesday, November 26, 2014
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pr-col">
+                        <div class="col-wrapper">
+                            <figure>
+                                <a href="/news-detail-3">
+                                    <img src="@Url.Content("~/img/media/press-releases/pr-thumb-3.jpg")" alt="" />
+                                </a>
+                            </figure>
+                            <h5>
+                                The Address Hotels + Resorts set to open in Abuja Centenary City in Nigeria as part of brand's global expansion
+                            </h5>
+                            <p>
+                                Tuesday, November 19, 2014
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pr-col">
+                        <div class="col-wrapper">
+                            <figure>
+                                <a href="/news-detail-4">
+                                    <img src="@Url.Content("~/img/media/press-releases/pr-thumb-3.jpg")" alt="" />
+                                </a>
+                            </figure>
+                            <h5>
+                                The Address Abuja to showcase work of leading international architects and consultants in Centenary City
+                            </h5>
+                            <p>
+                                Tuesday, November 9, 2014
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pr-col">
+                        <div class="col-wrapper">
+                            <figure>
+                                <a href="/news-detail-7">
+                                    <img src="@Url.Content("~/img/media/press-releases/pr-thumb-4.jpg")" alt="" />
+                                </a>
+                            </figure>
+                            <h5>
+                                Serbian Prime Minister H.E. Alexander Vucic unveils masterplan of US$3 bn Belgrade Waterfront, a spectacular city hub along River Sava
+                            </h5>
+                            <p>
+                                Tuesday, June 27, 2014
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pr-col">
+                        <div class="col-wrapper">
+                            <figure>
+                                <a href="/news-detail-14">
+                                    <img src="@Url.Content("~/img/media/press-releases/Centenary-City-masterplan.jpg")" alt="" />
+                                </a>
+                            </figure>
+                            <h5>
+                                President Goodluck Jonathan marks groundbreaking of Abuja Centenary City
+                            </h5>
+                            <p>
+                                Tuesday, June 24, 2014
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pager1">
+                <a href="@Url.Action("media-centre", "Frontend", new { Id = 1 })">1</a>
+                <a href="@Url.Action("media-centre", "Frontend", new { Id = 2 })">2</a>
+            </div>
+        </section>
+        <!--Press Releases-->
+        <!--Gallery-->
+        <section id="gallery" class="press-release-gallery">
+            <div class="tab">
+                <h4>
+                    gallery
+                </h4>
+            </div>
+            <div class="gallery">
+                <div class="leftpane">
+                    <div class="gallery-frame">
+                        <div class="dekstop-slider-view">
+                            <div class="largerImage">
+                                <img src="@Url.Content("/img/gallery/large/01.jpg")" id="addimage" alt="" />
+                            </div>
+                            <img src="@Url.Content("/img/generic/gallery-frame.png")" class="frame" alt="" />
+                        </div>
+                        <div class="mobile-slider-view">
+                            <div id="slider" class="flexslider">
+                                <ul class="slides">
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/01.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/02.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/03.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/04.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/05.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/06.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/07.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/08.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/09.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/10.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/11.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/12.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/13.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/14.jpg")" />
+                                    </li>
+                                    <!-- items mirrored twice, total of 12 -->
+                                </ul>
+                            </div>
+                            <div id="carousel" class="flexslider">
+                                <ul class="slides">
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/01.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/02.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/03.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/04.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/05.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/06.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/07.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/08.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/09.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/10.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/11.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/12.jpg")" />
+                                    </li>
+                                    <li>
+                                        <img src="@Url.Content("/img/gallery/large/13.jpg")" />
+                                    </li>
+                                    <!-- items mirrored twice, total of 12 -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rightpane">
+                    <h3>
+                        Photo Gallery
+                    </h3>
+                    <div class="desktop-gallery">
+                        <ul>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/large/01.jpg")" alt="" />
+                                <img src="@Url.Content("/img/gallery/large/02.jpg")" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/large/03.jpg")" alt="" />
+                                <img src="@Url.Content("/img/gallery/large/04.jpg")" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/large/05.jpg")" alt="" />
+                                <img src="@Url.Content("/img/gallery/large/06.jpg")" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/large/07.jpg")" alt="" />
+                                <img src="@Url.Content("/img/gallery/large/08.jpg")" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/large/09.jpg")" alt="" />
+                                <img src="@Url.Content("/img/gallery/large/10.jpg")" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/large/11.jpg")" alt="" />
+                                <img src="@Url.Content("/img/gallery/large/12.jpg")" alt="" />
+                            </li>
+                            <li>
+                                <img src="@Url.Content("/img/gallery/large/13.jpg")" alt="" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="carousel-btns">
+                        <input class="next" type="button" value="" />
+                        <input class="prev" type="button" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="explore">
+                <h3>
+                    Explore other spectacular City Hubs of the Future
+                </h3>
+                <div class="explore-projects">
+                    <div class="explore-block">
+                        <a href="@Url.Action("centenary_city", "Frontend")">
+                            <div class="project-list-img">
+                                <img src="@Url.Content("/img/inner/explore1.jpg")" alt="" />
+                            </div>
+                            <p>
+                                nigeria
+                            </p>
+                            <h3>
+                                Centenary City
+                            </h3>
+                        </a>
+                    </div>
+                    <div class="explore-block">
+                        <a href="@Url.Action("marassi_al_bahrain", "Frontend")">
+                            <div class="project-list-img">
+                                <img src="@Url.Content("/img/inner/explore3.jpg")" alt="" />
+                            </div>
+                            <p>
+                                Bahrain
+                            </p>
+                            <h3>
+                                Marassi Al Bahrain
+                            </h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Gallery-->
+        @{ViewData["ActionName"] = "media-centre";}
+        @*@Html.Partial("_Register")*@
+        <script src="~/js/jquery.default.js"></script>
+    </div>
+    <!-- #main -->
+</div>
